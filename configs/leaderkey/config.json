@@ -1,0 +1,171 @@
+{
+  "actions" : [
+    {
+      "key" : "f",
+      "label" : "files",
+      "type" : "application",
+      "value" : "/System/Library/CoreServices/Finder.app"
+    },
+    {
+      "key" : "b",
+      "label" : "browser",
+      "type" : "application",
+      "value" : "/Applications/Dia.app"
+    },
+    {
+      "key" : "t",
+      "label" : "terminal",
+      "type" : "application",
+      "value" : "/Applications/Ghostty.app"
+    },
+    {
+      "key" : "e",
+      "label" : "editor",
+      "type" : "application",
+      "value" : "/Applications/Zed.app"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "s",
+          "label" : "settings",
+          "type" : "application",
+          "value" : "/System/Applications/System Settings.app"
+        },
+        {
+          "key" : "w",
+          "label" : "window manager",
+          "type" : "application",
+          "value" : "/Applications/AeroSpace.app"
+        },
+        {
+          "key" : "a",
+          "label" : "audio mixer",
+          "type" : "application",
+          "value" : "/Applications/SoundSource.app"
+        },
+        {
+          "key" : "l",
+          "label" : "logitech",
+          "type" : "application",
+          "value" : "/Applications/logioptionsplus.app"
+        },
+        {
+          "key" : "m",
+          "label" : "activity monitor",
+          "type" : "application",
+          "value" : "/System/Applications/Utilities/Activity Monitor.app"
+        },
+        {
+          "key" : "p",
+          "label" : "passwords",
+          "type" : "application",
+          "value" : "/System/Applications/Passwords.app"
+        }
+      ],
+      "key" : ",",
+      "label" : "utilites",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "m",
+          "label" : "music",
+          "type" : "application",
+          "value" : "/System/Applications/Music.app"
+        },
+        {
+          "key" : "t",
+          "label" : "text",
+          "type" : "application",
+          "value" : "/System/Applications/Messages.app"
+        },
+        {
+          "key" : "c",
+          "label" : "call",
+          "type" : "application",
+          "value" : "/System/Applications/FaceTime.app"
+        },
+        {
+          "key" : "j",
+          "label" : "journal",
+          "type" : "application",
+          "value" : "/Applications/Day One.app"
+        },
+        {
+          "key" : "p",
+          "label" : "photos",
+          "type" : "application",
+          "value" : "/System/Applications/Photos.app"
+        }
+      ],
+      "key" : "m",
+      "label" : "media",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "a",
+          "label" : "andante",
+          "type" : "application",
+          "value" : "/Applications/Andante.app"
+        },
+        {
+          "key" : "f",
+          "label" : "forscore",
+          "type" : "application",
+          "value" : "/Applications/forScore.app"
+        },
+        {
+          "key" : "v",
+          "label" : "voice memos",
+          "type" : "application",
+          "value" : "/System/Applications/VoiceMemos.app"
+        }
+      ],
+      "key" : "p",
+      "label" : "trombone",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "s",
+          "label" : "safari",
+          "type" : "application",
+          "value" : "/Applications/Safari.app"
+        },
+        {
+          "key" : "n",
+          "label" : "notes",
+          "type" : "application",
+          "value" : "/System/Applications/Notes.app"
+        },
+        {
+          "key" : "m",
+          "label" : "maps",
+          "type" : "application",
+          "value" : "/System/Applications/Maps.app"
+        },
+        {
+          "key" : "d",
+          "label" : "discord",
+          "type" : "application",
+          "value" : "/Applications/Discord.app"
+        },
+        {
+          "key" : "o",
+          "label" : "obsidian",
+          "type" : "application",
+          "value" : "/Applications/Obsidian.app"
+        }
+      ],
+      "key" : "n",
+      "label" : "extras",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}

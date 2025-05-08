@@ -1,0 +1,44 @@
+[user]
+	name = nealxm
+	email = 88364802+nealxm@users.noreply.github.com
+	signingkey = 591541F81A7AC506
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = /opt/homebrew/bin/gpg
+
+[alias]
+	bblame = blame -w -C -C -C
+	wdiff = diff --word-diff
+	sfpush = push --force-with-lease
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[rerere]
+	autoUpdate = true
+	enabled = true
+
+[color]
+	branch = true
+	diff = true
+	interactive = true
+	status = true
+	ui = true
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

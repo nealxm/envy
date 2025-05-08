@@ -1,0 +1,65 @@
+#:schema https://starship.rs/config-schema.json
+palette = 'rose-pine'
+
+format = """
+$directory \
+$git_branch \
+$cmd_duration \
+$line_break \
+$character
+"""
+
+right_format = """
+$golang \
+$lua \
+$python
+"""
+
+[directory]
+style = 'pine'
+format = '[$path]($style)'
+truncation_length = 0
+truncate_to_repo = false
+
+[git_branch]
+style = 'love'
+format = 'on [$branch(:$remote_branch)]($style)'
+
+[cmd_duration]
+style = 'highlight_med'
+format = '[$duration]($style)'
+min_time = 0
+show_milliseconds = true
+
+[character]
+success_symbol = '[❯](iris)'
+error_symbol = '[❯](love)'
+
+[golang]
+style = 'rose'
+format = '[$version]($style)'
+
+[lua]
+style = 'rose'
+format = '[$version]($style)'
+
+[python]
+style = 'rose'
+format = '[${version} \($virtualenv\)]($style)'
+
+[palettes.rose-pine]
+base = '#191724'
+surface = '#1f1d2e'
+overlay = '#26233a'
+muted = '#6e6a86'
+subtle = '#908caa'
+text = '#e0def4'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ebbcba'
+pine = '#31748f'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
+highlight_low = '#21202e'
+highlight_med = '#403d52'
+highlight_high = '#524f67'

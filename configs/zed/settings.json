@@ -1,0 +1,158 @@
+{
+  "theme": "Zed Legacy: Rosé Pine",
+  "base_keymap": "None",
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
+  "bottom_dock_layout": "full",
+  "pane_split_direction_horizontal": "down",
+  "pane_split_direction_vertical": "right",
+  "vim_mode": true,
+  "restore_on_startup": "none",
+  "auto_signature_help": true,
+  "wrap_guides": [80, 120],
+  "always_treat_brackets_as_autoclosed": true,
+  "toolbar": {
+    "quick_actions": false
+  },
+  "scrollbar": {
+    "show": "always",
+    "axes": {
+      "horizontal": false
+    }
+  },
+  "gutter": {
+    "code_actions": false,
+    "runnables": false
+  },
+  "relative_line_numbers": true,
+  "project_panel": {
+    "button": false,
+    "scrollbar": {
+      "show": "never"
+    }
+  },
+  "outline_panel": {
+    "button": false,
+    "scrollbar": {
+      "show": "never"
+    }
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": "never"
+  },
+  "git_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "agent": {
+    "default_profile": "ask",
+    "single_file_review": false,
+    "version": "2",
+    "button": false,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3.7-sonnet-thought"
+    }
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "ensure_final_newline_on_save": false,
+  "file_scan_exclusions": ["**/.DS_Store", "**/.git/", "**/.venv/"],
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "terminal": {
+    "button": false,
+    "toolbar": {
+      "title": false
+    }
+  },
+  "auto_install_extensions": {
+    "html": false,
+    "zed-legacy-themes": true,
+    "git-firefly": true
+  },
+  "languages": {
+    "LaTeX": {
+      "show_edit_predictions": true
+    },
+    "Python": {
+      "language_servers": ["ruff", "pyright"]
+    },
+    "Lua": {
+      "lsp": {
+        "settings": {
+          "Lua": {
+            "diagnostics": {
+              "globals": ["vim"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 100,
+          "lint": {
+            "ignore": ["E731"]
+          }
+        }
+      }
+    },
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "executable": "latexmk",
+            "args": ["-pdf", "-synctex=1", "%f"],
+            "forwardSearchAfter": true,
+            "onSave": true
+          },
+          "forwardSearch": {
+            "executable": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+            "args": ["-r", "-n", "%l", "%p", "%f"]
+          }
+        }
+      }
+    },
+    "lua-language-server": {
+      "settings": {
+        "Lua": {
+          "diagnostics": {
+            "globals": ["vim"]
+          }
+        }
+      }
+    }
+  },
+  "file_types": {
+    "Regex": ["patterns.txt"]
+  }
+}
