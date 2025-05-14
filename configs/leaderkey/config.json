@@ -160,6 +160,12 @@
           "label" : "obsidian",
           "type" : "application",
           "value" : "/Applications/Obsidian.app"
+        },
+        {
+          "key" : "t",
+          "label" : "qbittorrent",
+          "type" : "application",
+          "value" : "/Applications/qBittorrent.app"
         }
       ],
       "key" : "n",

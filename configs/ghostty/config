@@ -7,9 +7,9 @@ macos-titlebar-proxy-icon = hidden
 window-inherit-working-directory = false
 working-directory = home
 
-keybind = ctrl+v=new_split:right
-keybind = ctrl+h=new_split:down
-keybind = ctrl+w>h=goto_split:left
-keybind = ctrl+w>j=goto_split:down
-keybind = ctrl+w>k=goto_split:up
-keybind = ctrl+w>l=goto_split:right
+keybind = ctrl+w>v=new_split:right
+keybind = ctrl+w>h=new_split:down
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+l=goto_split:right

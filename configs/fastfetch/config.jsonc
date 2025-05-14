@@ -16,7 +16,7 @@
       "type": "os",
       "format": "{name} {codename} {version} ({build-id})",
     },
-    "initsystem",
+    { "type": "initsystem", "format": "{exe} {version} (pid #{pid})" },
     "uptime",
     "processes",
     "opencl",
