@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 set -e
 
 source="https://raw.githubusercontent.com/rose-pine/zed/refs/heads/main/themes/rose-pine.json"

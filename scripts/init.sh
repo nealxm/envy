@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 set -e
 
 source=$HOME/dev/envy/configs
