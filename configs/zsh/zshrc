@@ -53,7 +53,7 @@ export FZF_DEFAULT_OPTS='
 unalias z 2> /dev/null
 nav() {
   fuzzy_nav() {
-    local dir=$(_z 2>&1 | fzf --height 40% --layout reverse --info inline \
+    local dir=$(_z 2>&1 | fzf --height 40% --layout reverse \
         --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
     [ -n "$dir" ] && cd "$dir"
   }
