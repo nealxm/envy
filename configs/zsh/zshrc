@@ -35,7 +35,6 @@ $SWIFTLY_BIN_DIR:\
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:\
 /Library/Apple/usr/bin"
 
-
 . $(brew --prefix)/etc/profile.d/z.sh
 . <(fzf --zsh)
 . $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -43,32 +42,14 @@ $SWIFTLY_BIN_DIR:\
 . $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
-export FZF_DEFAULT_OPTS='
-  --color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626
-  --color=hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92
-  --color=prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f
-  --color=gutter:#191724,border:#403d52,label:#aeaeae,query:#d9d9d9
-  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="❯"
-  --marker="*" --pointer=">" --separator="─" --scrollbar="│" --info="right"'
-unalias z 2> /dev/null
+export FZF_DEFAULT_OPTS="
+--color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626,hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92,prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f,gutter:#191724,border:#403d52,label:#aeaeae,query:#d9d9d9
+--height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '❯ ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'
+"
+unalias z
 nav() {
-  fuzzy_nav() {
-    local dir=$(_z 2>&1 | fzf --height 40% --layout reverse \
-        --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
+    local dir=$(_z 2>&1 | fzf --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
     [ -n "$dir" ] && cd "$dir"
-  }
-
-  if [ -z "$*" ]; then
-    fuzzy_nav ""
-    return
-  fi
-
-  if [ -d "$*" ]; then
-    cd "$*"
-    return
-  fi
-
-  fuzzy_nav "$*"
 }
 
 bindkey '^[[A' history-substring-search-up
