@@ -2,7 +2,7 @@
 
 options=(
     style=round
-    active_color=0xFFBF5AF2
+    active_color=0xFFeb6f92
     width=5.0
 )
 
