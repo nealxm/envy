@@ -61,6 +61,12 @@
           "label" : "passwords",
           "type" : "application",
           "value" : "/System/Applications/Passwords.app"
+        },
+        {
+          "key" : "t",
+          "label" : "toggle audio",
+          "type" : "command",
+          "value" : "/bin/zsh ~/dev/envy/scripts/toggle-audio.sh"
         }
       ],
       "key" : ",",
