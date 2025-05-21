@@ -47,6 +47,8 @@ export FZF_DEFAULT_OPTS="
 --height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '❯ ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'
 "
 unalias z
+alias mls="ls -AGho"
+
 nav() {
     local dir=$(_z 2>&1 | fzf --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
     [ -n "$dir" ] && cd "$dir"

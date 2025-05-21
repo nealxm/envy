@@ -12,7 +12,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 

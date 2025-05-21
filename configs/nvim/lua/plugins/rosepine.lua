@@ -1,21 +1,17 @@
 return {
-	"rose-pine/neovim",
-	config = function()
-		require("rose-pine").setup({
-			variant = "main",
-
-			enable = {
-				terminal = true,
-				legacy_highlights = true,
-				migrations = true,
-			},
-
-			styles = {
-				bold = true,
-				italic = true,
-				transparency = true,
-			},
-		})
-		vim.cmd.colorscheme("rose-pine")
-	end,
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    config = function()
+        require("rose-pine").setup({
+            variant = "main",
+            dark_variant = "main",
+            styles = { transparency = true },
+            highlight_groups = {
+                StatusLine = { bg = "surface" },
+                StatusLineNC = { bg = "surface" },
+            }
+        })
+        vim.cmd.colorscheme("rose-pine")
+    end
 }
