@@ -7,10 +7,15 @@ macos-titlebar-proxy-icon = hidden
 window-inherit-working-directory = false
 working-directory = home
 
-keybind = ctrl+s>s=new_split:right
-keybind = ctrl+s>h=new_split:down
-keybind = ctrl+s>ctrl+h=goto_split:left
-keybind = ctrl+s>ctrl+j=goto_split:down
-keybind = ctrl+s>ctrl+k=goto_split:up
-keybind = ctrl+s>ctrl+l=goto_split:right
+keybind = ctrl+s>ctrl+v=new_split:right
+keybind = ctrl+s>ctrl+h=new_split:down
+keybind = ctrl+s>h=goto_split:left
+keybind = ctrl+s>j=goto_split:down
+keybind = ctrl+s>k=goto_split:up
+keybind = ctrl+s>l=goto_split:right
+
 keybind = ctrl+f=text:nav\n
+keybind = ctrl+e=text:zed .\n
+keybind = ctrl+shift+n=text:nvim\n
+keybind = ctrl+shift+i=text:fastfetch\n
+keybind = ctrl+shift+p=text:btop\n
