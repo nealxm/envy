@@ -91,10 +91,6 @@
       "format": "{size} ({type})",
     },
     {
-      "type": "swap",
-      "key": "swap",
-    },
-    {
       "type": "physicaldisk",
       "key": "disk",
       "format": "{size} ({physical-type})",
