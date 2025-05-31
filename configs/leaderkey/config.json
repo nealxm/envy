@@ -22,7 +22,7 @@
       "key" : "e",
       "label" : "editor",
       "type" : "application",
-      "value" : "/Applications/Zed.app"
+      "value" : "/Applications/Zed Preview.app"
     },
     {
       "actions" : [
@@ -49,12 +49,6 @@
           "label" : "logitech",
           "type" : "application",
           "value" : "/Applications/logioptionsplus.app"
-        },
-        {
-          "key" : "m",
-          "label" : "activity monitor",
-          "type" : "application",
-          "value" : "/System/Applications/Utilities/Activity Monitor.app"
         },
         {
           "key" : "p",
@@ -166,12 +160,6 @@
           "label" : "obsidian",
           "type" : "application",
           "value" : "/Applications/Obsidian.app"
-        },
-        {
-          "key" : "t",
-          "label" : "qbittorrent",
-          "type" : "application",
-          "value" : "/Applications/qBittorrent.app"
         }
       ],
       "key" : "n",

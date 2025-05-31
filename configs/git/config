@@ -7,13 +7,33 @@
 	defaultBranch = main
 
 [core]
+    compression = 9
 	editor = nvim
+	preloadindex = true
+	whitespace = error
+
+[advice]
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints = false
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
 
 [commit]
-	gpgsign = true
+	gpgSign = true
 
 [gpg]
 	program = /opt/homebrew/bin/gpg
+
+[push]
+    autoSetupRemote = true
+    default = current
+
+[pull]
+    default = current
 
 [alias]
 	bblame = blame -w -C -C -C
