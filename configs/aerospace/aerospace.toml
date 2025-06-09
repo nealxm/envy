@@ -103,7 +103,7 @@ if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
+if.app-id = 'dev.zed.Zed-Preview'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
