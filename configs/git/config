@@ -7,15 +7,9 @@
 	defaultBranch = main
 
 [core]
-    compression = 9
 	editor = nvim
 	preloadindex = true
 	whitespace = error
-
-[advice]
-    addEmptyPathspec = false
-    pushNonFastForward = false
-    statusHints = false
 
 [status]
     branch = true
@@ -30,15 +24,6 @@
 
 [push]
     autoSetupRemote = true
-    default = current
-
-[pull]
-    default = current
-
-[alias]
-	bblame = blame -w -C -C -C
-	wdiff = diff --word-diff
-	sfpush = push --force-with-lease
 
 [column]
 	ui = auto
@@ -46,19 +31,9 @@
 [branch]
 	sort = -committerdate
 
-[rerere]
-	autoUpdate = true
-	enabled = true
-
 [color]
 	branch = true
 	diff = true
 	interactive = true
 	status = true
 	ui = true
-
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
