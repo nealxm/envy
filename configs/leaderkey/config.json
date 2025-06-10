@@ -123,6 +123,12 @@
           "label" : "voice memos",
           "type" : "application",
           "value" : "/System/Applications/VoiceMemos.app"
+        },
+        {
+          "key" : "o",
+          "label" : "obsidian",
+          "type" : "application",
+          "value" : "/Applications/Obsidian.app"
         }
       ],
       "key" : "p",
@@ -132,6 +138,7 @@
     {
       "actions" : [
         {
+          "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
           "key" : "s",
           "label" : "safari",
           "type" : "application",
@@ -154,16 +161,29 @@
           "label" : "discord",
           "type" : "application",
           "value" : "/Applications/Discord.app"
-        },
-        {
-          "key" : "o",
-          "label" : "obsidian",
-          "type" : "application",
-          "value" : "/Applications/Obsidian.app"
         }
       ],
       "key" : "n",
       "label" : "extras",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "w",
+          "label" : "rectangle",
+          "type" : "application",
+          "value" : "/Applications/Rectangle Pro.app"
+        },
+        {
+          "key" : "c",
+          "label" : "center",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-action?name=center"
+        }
+      ],
+      "key" : "w",
+      "label" : "window",
       "type" : "group"
     }
   ],
