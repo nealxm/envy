@@ -1,12 +1,6 @@
 {
   "actions" : [
     {
-      "key" : "f",
-      "label" : "files",
-      "type" : "application",
-      "value" : "/System/Library/CoreServices/Finder.app"
-    },
-    {
       "key" : "b",
       "label" : "browser",
       "type" : "application",
@@ -27,22 +21,16 @@
     {
       "actions" : [
         {
+          "key" : "f",
+          "label" : "files",
+          "type" : "application",
+          "value" : "/System/Library/CoreServices/Finder.app"
+        },
+        {
           "key" : "s",
           "label" : "settings",
           "type" : "application",
           "value" : "/System/Applications/System Settings.app"
-        },
-        {
-          "key" : "w",
-          "label" : "window manager",
-          "type" : "application",
-          "value" : "/Applications/AeroSpace.app"
-        },
-        {
-          "key" : "a",
-          "label" : "audio mixer",
-          "type" : "application",
-          "value" : "/Applications/SoundSource.app"
         },
         {
           "key" : "l",
@@ -57,14 +45,33 @@
           "value" : "/System/Applications/Passwords.app"
         },
         {
+          "key" : "m",
+          "label" : "phone mirror",
+          "type" : "application",
+          "value" : "/System/Applications/iPhone Mirroring.app"
+        }
+      ],
+      "key" : ",",
+      "label" : "utilites",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "m",
+          "label" : "audio mixer",
+          "type" : "application",
+          "value" : "/Applications/SoundSource.app"
+        },
+        {
           "key" : "t",
           "label" : "toggle audio",
           "type" : "command",
           "value" : "/bin/zsh ~/dev/envy/scripts/toggle-audio.sh"
         }
       ],
-      "key" : ",",
-      "label" : "utilites",
+      "key" : "a",
+      "label" : "audio",
       "type" : "group"
     },
     {
@@ -138,6 +145,31 @@
     {
       "actions" : [
         {
+          "key" : "m",
+          "label" : "window manager",
+          "type" : "application",
+          "value" : "/Applications/AeroSpace.app"
+        },
+        {
+          "key" : "l",
+          "label" : "rectangle",
+          "type" : "application",
+          "value" : "/Applications/Rectangle Pro.app"
+        },
+        {
+          "key" : "c",
+          "label" : "center",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-action?name=center"
+        }
+      ],
+      "key" : "w",
+      "label" : "window",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
           "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
           "key" : "s",
           "label" : "safari",
@@ -161,29 +193,16 @@
           "label" : "discord",
           "type" : "application",
           "value" : "/Applications/Discord.app"
+        },
+        {
+          "key" : "f",
+          "label" : "flighty",
+          "type" : "application",
+          "value" : "/Applications/Flighty.app"
         }
       ],
       "key" : "n",
       "label" : "extras",
-      "type" : "group"
-    },
-    {
-      "actions" : [
-        {
-          "key" : "w",
-          "label" : "rectangle",
-          "type" : "application",
-          "value" : "/Applications/Rectangle Pro.app"
-        },
-        {
-          "key" : "c",
-          "label" : "center",
-          "type" : "url",
-          "value" : "rectangle-pro://execute-action?name=center"
-        }
-      ],
-      "key" : "w",
-      "label" : "window",
       "type" : "group"
     }
   ],
