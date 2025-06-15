@@ -11,11 +11,13 @@ $character
 """
 
 right_format = """
-$golang \
-$lua \
-$python
-$zig \
-$rust
+$golang\
+$lua\
+$python\
+$zig\
+$rust\
+$c\
+$cpp
 """
 
 [directory]
@@ -73,6 +75,19 @@ format = '[zig-$version]($style)'
 style = 'rose'
 version_format = '${raw}'
 format = '[rust-$version]($style)'
+
+[c]
+style = 'rose'
+version_format = '${raw}'
+format = '[c-$name$version]($style)'
+disabled = false
+
+[cpp]
+style = 'rose'
+version_format = '${raw}'
+format = '[c++-$name$version]($style)'
+disabled = false
+
 
 [palettes.rose-pine]
 base = '#191724'
