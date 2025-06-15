@@ -2,10 +2,11 @@
 palette = 'rose-pine'
 
 format = """
+${username}${hostname} \
 $directory \
 $git_branch \
 $cmd_duration \
-$line_break \
+$line_break\
 $character
 """
 
@@ -13,6 +14,8 @@ right_format = """
 $golang \
 $lua \
 $python
+$zig \
+$rust
 """
 
 [directory]
@@ -22,7 +25,7 @@ truncation_length = 0
 truncate_to_repo = false
 
 [git_branch]
-style = 'love'
+style = 'iris'
 format = 'on [$branch(:$remote_branch)]($style)'
 
 [cmd_duration]
@@ -31,21 +34,45 @@ format = '[$duration]($style)'
 min_time = 0
 show_milliseconds = true
 
+[username]
+show_always = true
+style_user = 'foam'
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = 'foam'
+format = '[@$hostname]($style)'
+
 [character]
-success_symbol = '[❯](iris)'
-error_symbol = '[❯](love)'
+success_symbol = '[;](foam)'
+error_symbol = '[;](love)'
 
 [golang]
 style = 'rose'
-format = '[$version]($style)'
+version_format = '${raw}'
+format = '[golang:$version]($style)'
 
 [lua]
 style = 'rose'
-format = '[$version]($style)'
+version_format = '${raw}'
+format = '[lua-$version]($style)'
 
 [python]
 style = 'rose'
-format = '[${version} \($virtualenv\)]($style)'
+version_format = '${raw}'
+python_binary = [["python3"], ["python"]]
+format = '[python-$version(-\($virtualenv\))]($style)'
+
+[zig]
+style = 'rose'
+version_format = '${raw}'
+format = '[zig-$version]($style)'
+
+[rust]
+style = 'rose'
+version_format = '${raw}'
+format = '[rust-$version]($style)'
 
 [palettes.rose-pine]
 base = '#191724'
