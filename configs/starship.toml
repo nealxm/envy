@@ -58,34 +58,34 @@ format = '[golang:$version]($style)'
 [lua]
 style = 'rose'
 version_format = '${raw}'
-format = '[lua-$version]($style)'
+format = '[lua:$version]($style)'
 
 [python]
 style = 'rose'
 version_format = '${raw}'
 python_binary = [["python3"], ["python"]]
-format = '[python-$version(-\($virtualenv\))]($style)'
+format = '[python:$version(-\($virtualenv\))]($style)'
 
 [zig]
 style = 'rose'
 version_format = '${raw}'
-format = '[zig-$version]($style)'
+format = '[zig:$version]($style)'
 
 [rust]
 style = 'rose'
 version_format = '${raw}'
-format = '[rust-$version]($style)'
+format = '[rust:$version]($style)'
 
 [c]
 style = 'rose'
 version_format = '${raw}'
-format = '[c-$name$version]($style)'
+format = '[c:$name$version]($style)'
 disabled = false
 
 [cpp]
 style = 'rose'
 version_format = '${raw}'
-format = '[c++-$name$version]($style)'
+format = '[c++:$name$version]($style)'
 disabled = false
 
 
