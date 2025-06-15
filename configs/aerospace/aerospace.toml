@@ -1,9 +1,9 @@
 start-at-login = true
 after-startup-command = [
     'exec-and-forget open "/Applications/Leader Key.app"',
-    'exec-and-forget open /Applications/SoundSource.app',
+    # 'exec-and-forget open /Applications/SoundSource.app',
     'exec-and-forget borders',
-    'exec-and-forget open "/Applications/Rectangle Pro.app"'
+    # 'exec-and-forget open "/Applications/Rectangle Pro.app"'
 ]
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -83,6 +83,18 @@ run = 'move-node-to-workspace 0'
 [[on-window-detected]]
 if.app-id = 'com.bloombuilt.dayone-mac'
 run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Mail'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Reminders'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.mgsdevelopment.forscore'

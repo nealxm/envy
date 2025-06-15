@@ -195,14 +195,45 @@
           "value" : "/Applications/Discord.app"
         },
         {
-          "key" : "f",
+          "key" : "p",
           "label" : "flighty",
           "type" : "application",
           "value" : "/Applications/Flighty.app"
+        },
+        {
+          "key" : "f",
+          "label" : "find my",
+          "type" : "application",
+          "value" : "/System/Applications/FindMy.app"
         }
       ],
       "key" : "n",
       "label" : "extras",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "c",
+          "label" : "calendar",
+          "type" : "application",
+          "value" : "/System/Applications/Calendar.app"
+        },
+        {
+          "key" : "m",
+          "label" : "mail",
+          "type" : "application",
+          "value" : "/System/Applications/Mail.app"
+        },
+        {
+          "key" : "r",
+          "label" : "reminders",
+          "type" : "application",
+          "value" : "/System/Applications/Reminders.app"
+        }
+      ],
+      "key" : "h",
+      "label" : "housekeeping",
       "type" : "group"
     }
   ],
