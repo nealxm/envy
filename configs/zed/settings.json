@@ -2,7 +2,7 @@
   "theme": "Rosé Pine",
   "base_keymap": "None",
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
   "buffer_font_family": "JetBrains Mono",
   "buffer_font_size": 13,
@@ -37,7 +37,10 @@
   "diagnostics": {
     "button": false
   },
-  "gutter": {},
+  "gutter": {
+    "code_actions": false,
+    "runnables": false
+  },
   "relative_line_numbers": true,
   "inlay_hints": {
     "enabled": true,
@@ -79,6 +82,9 @@
       "model": "claude-sonnet-4"
     }
   },
+  "debugger": {
+    "button": false
+  },
   "tab_bar": {
     "show": false
   },
@@ -89,13 +95,14 @@
     "modal_max_width": "large"
   },
   "ensure_final_newline_on_save": false,
-  "file_scan_exclusions": ["**/.DS_Store", "**/.git/", "**/.venv/"],
+  "file_scan_exclusions": [
+    "**/.DS_Store",
+    "**/.git/",
+    "**/.venv/",
+    "**/build/"
+  ],
   "edit_predictions": {
     "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
     "enabled_in_text_threads": false
   },
   "terminal": {
