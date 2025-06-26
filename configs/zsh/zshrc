@@ -30,7 +30,7 @@ export PATH="/opt/homebrew/bin:\
 /usr/sbin:\
 /sbin:\
 $GOPATH/bin:\
-$RUSTUP_HOME/toolchains/stable-aarch64-apple-darwin/bin:\
+$(brew --prefix rustup)/bin:\
 $SWIFTLY_BIN_DIR:\
 /Library/TeX/texbin:\
 /System/Cryptexes/App/usr/bin:\
@@ -59,6 +59,7 @@ nav() {
     [ -n "$dir" ] && cd "$dir"
 }
 
+bindkey -v
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
