@@ -2,10 +2,12 @@
 palette = 'rose-pine'
 
 format = """
-${username}${hostname} \
+$sudo\
+$username\
+$hostname \
 $directory \
 $git_branch \
-$cmd_duration \
+$cmd_duration\
 $line_break\
 $character
 """
@@ -20,73 +22,63 @@ $c\
 $cpp
 """
 
-[directory]
-style = 'pine'
-format = '[$path]($style)'
-truncation_length = 0
-truncate_to_repo = false
-
-[git_branch]
-style = 'iris'
-format = 'on [$branch(:$remote_branch)]($style)'
-
-[cmd_duration]
-style = 'highlight_med'
-format = '[$duration]($style)'
-min_time = 0
-show_milliseconds = true
+[sudo]
+disabled = false
+format = '[!](gold)'
 
 [username]
 show_always = true
-style_user = 'foam'
-format = '[$user]($style)'
+format = '[$user](foam)'
 
 [hostname]
 ssh_only = false
-style = 'foam'
-format = '[@$hostname]($style)'
+format = '[@$hostname](foam)'
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+format = '[$path](pine)'
+
+[git_branch]
+format = 'on [$branch(:$remote_branch)](iris)'
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
+format = '[$duration](highlight_med)'
 
 [character]
 success_symbol = '[;](foam)'
 error_symbol = '[;](love)'
 
 [golang]
-style = 'rose'
 version_format = '${raw}'
-format = '[golang:$version]($style)'
+format = '[golang:$version](rose)'
 
 [lua]
-style = 'rose'
 version_format = '${raw}'
-format = '[lua:$version]($style)'
+format = '[lua:$version](rose)'
 
 [python]
-style = 'rose'
-version_format = '${raw}'
 python_binary = [["python3"], ["python"]]
-format = '[python:$version(-\($virtualenv\))]($style)'
+version_format = '${raw}'
+format = '[python:$version(-\($virtualenv\))](rose)'
 
 [zig]
-style = 'rose'
 version_format = '${raw}'
-format = '[zig:$version]($style)'
+format = '[zig:$version](rose)'
 
 [rust]
-style = 'rose'
 version_format = '${raw}'
-format = '[rust:$version]($style)'
+format = '[rust:$version](rose)'
 
 [c]
-style = 'rose'
 version_format = '${raw}'
-format = '[c:$name$version]($style)'
-disabled = false
+format = '[c:$name$version](rose)'
 
 [cpp]
-style = 'rose'
 version_format = '${raw}'
-format = '[c++:$name$version]($style)'
-disabled = false
+format = '[c++:$name$version](rose)'
 
 
 [palettes.rose-pine]

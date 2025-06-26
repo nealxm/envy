@@ -1,11 +1,6 @@
 export GPG_TTY=$TTY
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    autoload -Uz compinit
-    compinit -d $HOME/.local/zsh/zcompdump
-fi
 
 export HISTFILE=$HOME/.local/zsh/zsh_history
 export _Z_DATA=$HOME/.local/z/z
@@ -62,5 +57,9 @@ nav() {
 bindkey -v
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+autoload -Uz compinit
+compinit -d $HOME/.local/zsh/zcompdump
 
 eval "$(starship init zsh)"
