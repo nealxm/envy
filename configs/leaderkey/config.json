@@ -161,6 +161,12 @@
           "label" : "center",
           "type" : "url",
           "value" : "rectangle-pro://execute-action?name=center"
+        },
+        {
+          "key" : "v",
+          "label" : "video 1080p",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-custom?name=1080"
         }
       ],
       "key" : "w",
