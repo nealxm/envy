@@ -14,11 +14,6 @@ export FZF_DEFAULT_OPTS="
 --color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626,hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92,prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f,gutter:#191724,border:#403d52,label:#aeaeae,query:#d9d9d9
 --height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '❯ ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'
 "
-unalias z
-nav() {
-    local dir=$(_z 2>&1 | fzf --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
-    [ -n "$dir" ] && cd "$dir"
-}
 
 case $(uname) in
     Darwin)
@@ -29,21 +24,21 @@ case $(uname) in
     export HOMEBREW_NO_ENV_HINTS=1
 
     export PATH="/opt/homebrew/bin:\
-    /opt/homebrew/sbin:\
-    /usr/local/bin:\
-    /usr/bin:\
-    /bin:\
-    /usr/sbin:\
-    /sbin:\
-    $GOPATH/bin:\
-    $(brew --prefix rustup)/bin:\
-    $SWIFTLY_BIN_DIR:\
-    /Library/TeX/texbin:\
-    /System/Cryptexes/App/usr/bin:\
-    /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:\
-    /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:\
-    /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:\
-    /Library/Apple/usr/bin"
+/opt/homebrew/sbin:\
+/usr/local/bin:\
+/usr/bin:\
+/bin:\
+/usr/sbin:\
+/sbin:\
+$GOPATH/bin:\
+$(brew --prefix rustup)/bin:\
+$SWIFTLY_BIN_DIR:\
+/Library/TeX/texbin:\
+/System/Cryptexes/App/usr/bin:\
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:\
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:\
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:\
+/Library/Apple/usr/bin"
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
     . <(fzf --zsh)
@@ -65,6 +60,12 @@ case $(uname) in
     alias mls="ls -AFhot --color=always"
     ;;
 esac
+
+unalias z
+nav() {
+    local dir=$(_z 2>&1 | fzf --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
+    [ -n "$dir" ] && cd "$dir"
+}
 
 bindkey -v
 bindkey '^[[A' history-substring-search-up

@@ -1,7 +1,6 @@
 [user]
 	name = nealxm
 	email = 88364802+nealxm@users.noreply.github.com
-	signingkey = 591541F81A7AC506
 
 [init]
 	defaultBranch = main
