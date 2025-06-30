@@ -23,6 +23,9 @@ case $(uname) in
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     export HOMEBREW_NO_ENV_HINTS=1
 
+    alias zed="zed-preview"
+    alias mls="ls -AFGhot"
+
     export PATH="/opt/homebrew/bin:\
 /opt/homebrew/sbin:\
 /usr/local/bin:\
@@ -39,7 +42,6 @@ $SWIFTLY_BIN_DIR:\
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:\
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:\
 /Library/Apple/usr/bin"
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
     . <(fzf --zsh)
     . $(brew --prefix)/etc/profile.d/z.sh
@@ -47,8 +49,7 @@ $SWIFTLY_BIN_DIR:\
     . $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     . $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-    alias zed="zed-preview"
-    alias mls="ls -AFGhot"
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
     ;;
     Linux)
     . <(fzf --zsh)
