@@ -73,6 +73,16 @@ version_format = '${raw}'
 format = '[rust:$version](rose)'
 
 [c]
+commands = [
+    [
+        "/opt/homebrew/opt/llvm/bin/clang",
+        "--version",
+    ],
+    [
+        "clang",
+        "--version",
+    ],
+]
 version_format = '${raw}'
 format = '[c:$name$version](rose)'
 
