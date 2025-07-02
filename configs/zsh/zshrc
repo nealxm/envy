@@ -1,6 +1,7 @@
 export GPG_TTY=$TTY
 export HISTFILE=$HOME/.local/zsh/zsh_history
 export LESSHISTFILE=$HOME/.local/less/lesshst
+export ZSH_COMPCACHE=$HOME/.cache/zsh/zcompcache
 export _Z_DATA=$HOME/.local/z/z
 export GOPATH=$HOME/.local/go
 export CARGO_HOME=$HOME/.local/rust/cargo
@@ -20,6 +21,7 @@ case $(uname) in
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export SWIFTLY_HOME_DIR=$HOME/.local/swiftly
     export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
+    export SWIFTLY_TOOLCHAINS_DIR="$HOME/Library/Developer/Toolchains"
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     export HOMEBREW_NO_ENV_HINTS=1
 
@@ -28,6 +30,7 @@ case $(uname) in
 
     export PATH="/opt/homebrew/bin:\
 /opt/homebrew/sbin:\
+$(brew --prefix llvm)/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\

@@ -1,10 +1,4 @@
-start-at-login = true
-after-startup-command = [
-    'exec-and-forget open "/Applications/Leader Key.app"',
-    # 'exec-and-forget open /Applications/SoundSource.app',
-    'exec-and-forget borders',
-    # 'exec-and-forget open "/Applications/Rectangle Pro.app"'
-]
+after-startup-command = ['exec-and-forget borders']
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 default-root-container-layout = 'tiles'
@@ -93,7 +87,7 @@ if.app-id = 'com.bloombuilt.dayone-mac'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Mail'
+if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
