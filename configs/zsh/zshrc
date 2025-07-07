@@ -59,7 +59,7 @@ $SWIFTLY_BIN_DIR:\
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
     ;;
     Linux)
-    if uwsm check may-start; then
+    if uwsm check may-start > /dev/null 2>&1; then
         exec uwsm start hyprland
     fi
 
