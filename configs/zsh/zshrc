@@ -1,5 +1,9 @@
 export GPG_TTY=$TTY
 export HISTFILE=$HOME/.local/zsh/zsh_history
+export HISTSIZE=10000
+export SAVEHIST=100000
+setopt append_history
+setopt inc_append_history
 export LESSHISTFILE=$HOME/.local/less/lesshst
 export ZSH_COMPDUMP=$HOME/.cache/zsh/zcompcache
 export _Z_DATA=$HOME/.local/z/z
@@ -55,12 +59,18 @@ $SWIFTLY_BIN_DIR:\
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
     ;;
     Linux)
+    if uwsm check may-start; then
+        exec uwsm start hyprland
+    fi
+
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
     . <(fzf --zsh)
     . /usr/share/z/z.sh
     . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+    alias zed="zeditor"
     alias mls="ls -AFhot --color=always"
     ;;
 esac
