@@ -13,6 +13,7 @@ $character
 """
 
 right_format = """
+$time\
 $golang\
 $lua\
 $python\
@@ -51,26 +52,30 @@ format = '[$duration](highlight_med)'
 success_symbol = '[;](foam)'
 error_symbol = '[;](love)'
 
+[time]
+disabled = false
+format = '[$time](highlight_med)'
+
 [golang]
 version_format = '${raw}'
-format = '[golang:$version](rose)'
+format = '[ golang:$version](rose)'
 
 [lua]
 version_format = '${raw}'
-format = '[lua:$version](rose)'
+format = '[ lua:$version](rose)'
 
 [python]
 python_binary = [["python3"], ["python"]]
 version_format = '${raw}'
-format = '[python:$version(-\($virtualenv\))](rose)'
+format = '[ python:$version(-\($virtualenv\))](rose)'
 
 [zig]
 version_format = '${raw}'
-format = '[zig:$version](rose)'
+format = '[ zig:$version](rose)'
 
 [rust]
 version_format = '${raw}'
-format = '[rust:$version](rose)'
+format = '[ rust:$version](rose)'
 
 [c]
 commands = [
@@ -84,11 +89,11 @@ commands = [
     ],
 ]
 version_format = '${raw}'
-format = '[c:$name$version](rose)'
+format = '[ c:$name$version](rose)'
 
 [cpp]
 version_format = '${raw}'
-format = '[c++:$name$version](rose)'
+format = '[ c++:$name$version](rose)'
 
 
 [palettes.rose-pine]
