@@ -5,16 +5,17 @@ export SAVEHIST=100000
 setopt append_history
 setopt inc_append_history
 export LESSHISTFILE=$HOME/.local/less/lesshst
-export ZSH_COMPDUMP=$HOME/.cache/zsh/zcompcache
+zstyle ':completion:*' cache-path ~/.cache/zcompcache
 export _Z_DATA=$HOME/.local/z/z
+export EDITOR=nvim
+export VISUAL=zed
+export CMAKE_GENERATOR=Ninja
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export GOPATH=$HOME/.local/go
 export CARGO_HOME=$HOME/.local/rust/cargo
 export RUSTUP_HOME=$HOME/.local/rust/rustup
-export EDITOR=nvim
-export VISUAL=nvim
-export CMAKE_GENERATOR=Ninja
-export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-export GIT_ADVICE=0
+export SWIFTLY_HOME_DIR=$HOME/.local/swiftly
+export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
 
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
 export FZF_DEFAULT_OPTS="
@@ -25,9 +26,8 @@ export FZF_DEFAULT_OPTS="
 case $(uname) in
     Darwin)
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    export SWIFTLY_HOME_DIR=$HOME/.local/swiftly
-    export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
-    export SWIFTLY_TOOLCHAINS_DIR="$HOME/Library/Developer/Toolchains"
+    export CC=$(brew --prefix llvm)/bin/clang
+    export CXX=$(brew --prefix llvm)/bin/clang++
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     export HOMEBREW_NO_ENV_HINTS=1
 

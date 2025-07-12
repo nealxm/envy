@@ -176,13 +176,6 @@
     {
       "actions" : [
         {
-          "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
-          "key" : "s",
-          "label" : "safari",
-          "type" : "application",
-          "value" : "/Applications/Safari.app"
-        },
-        {
           "key" : "n",
           "label" : "notes",
           "type" : "application",
@@ -236,6 +229,13 @@
           "label" : "reminders",
           "type" : "application",
           "value" : "/System/Applications/Reminders.app"
+        },
+        {
+          "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
+          "key" : "s",
+          "label" : "safari",
+          "type" : "application",
+          "value" : "/Applications/Safari.app"
         }
       ],
       "key" : "h",

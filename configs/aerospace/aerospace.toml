@@ -8,16 +8,15 @@ on-focus-changed = 'move-mouse window-lazy-center'
 automatically-unhide-macos-hidden-apps = true
 
 accordion-padding = 15
-[gaps]
-inner.horizontal = 10
-inner.vertical = 10
-outer.left = 10
-outer.bottom = 10
-outer.top = 10
-outer.right = 10
+gaps.inner.horizontal = 10
+gaps.inner.vertical = 10
+gaps.outer.left = 10
+gaps.outer.bottom = 10
+gaps.outer.top = 10
+gaps.outer.right = 10
 
 [mode.main.binding]
-alt-slash = 'layout tiles horizontal vertical'
+alt-slash = 'layout  h_tiles v_tiles'
 alt-comma = 'layout v_accordion'
 
 alt-h = 'focus left'
@@ -34,29 +33,25 @@ alt-shift-f = 'fullscreen'
 alt-shift-leftSquareBracket = 'resize smart -20'
 alt-shift-rightSquareBracket = 'resize smart +20'
 
-alt-w = 'workspace 0'
-alt-e = 'workspace 1'
-alt-r = 'workspace 2'
-alt-t = 'workspace 3'
-alt-y = 'workspace 4'
-alt-u = 'workspace 5'
-alt-i = 'workspace 6'
-alt-o = 'workspace 7'
+alt-w = 'workspace 1'
+alt-e = 'workspace 2'
+alt-r = 'workspace 3'
+alt-t = 'workspace 4'
+alt-y = 'workspace 5'
+alt-u = 'workspace 6'
+alt-i = 'workspace 7'
+alt-o = 'workspace 8'
 
-alt-shift-w = 'move-node-to-workspace 0'
-alt-shift-e = 'move-node-to-workspace 1'
-alt-shift-r = 'move-node-to-workspace 2'
-alt-shift-t = 'move-node-to-workspace 3'
-alt-shift-y = 'move-node-to-workspace 4'
-alt-shift-u = 'move-node-to-workspace 5'
-alt-shift-i = 'move-node-to-workspace 6'
-alt-shift-o = 'move-node-to-workspace 7'
-
-# alt-tab = 'workspace-back-and-forth'
-# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+alt-shift-w = 'move-node-to-workspace 1'
+alt-shift-e = 'move-node-to-workspace 2'
+alt-shift-r = 'move-node-to-workspace 3'
+alt-shift-t = 'move-node-to-workspace 4'
+alt-shift-y = 'move-node-to-workspace 5'
+alt-shift-u = 'move-node-to-workspace 6'
+alt-shift-i = 'move-node-to-workspace 7'
+alt-shift-o = 'move-node-to-workspace 8'
 
 alt-shift-semicolon = 'mode service'
-
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 f = ['layout floating tiling', 'mode main']
@@ -76,60 +71,60 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.FaceTime'
-run = 'move-node-to-workspace 0'
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 0'
-
-[[on-window-detected]]
-if.app-id = 'com.bloombuilt.dayone-mac'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.mail'
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.bloombuilt.dayone-mac'
 run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Reminders'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.mgsdevelopment.forscore'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Photos'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
+if.app-id = 'com.apple.reminders'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.mgsdevelopment.forscore'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Photos'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.dia'
-run = 'move-node-to-workspace 4'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed-Preview'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace 6'
+run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
-run = 'move-node-to-workspace 6'
+run = 'move-node-to-workspace 7'
