@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 4
 
 vim.opt.breakindent = true
 vim.opt.ignorecase = true
@@ -23,6 +24,8 @@ vim.g.netrw_list_hide = [[\.DS_Store\|\.git\/]]
 
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.opt.ttyfast = true
+vim.opt.smoothscroll = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -31,6 +34,4 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+vim.opt.clipboard = "unnamedplus"

@@ -1,5 +1,8 @@
 {
-  "theme": "Rosé Pine",
+  "theme": {
+    "light": "Rosé Pine",
+    "dark": "Rosé Pine"
+  },
   "base_keymap": "None",
   "features": {
     "edit_prediction_provider": "zed"
@@ -38,7 +41,6 @@
     "button": false
   },
   "gutter": {
-    "code_actions": false,
     "runnables": false
   },
   "relative_line_numbers": true,
@@ -73,14 +75,12 @@
     "button": false
   },
   "agent": {
-    "default_profile": "ask",
-    "single_file_review": false,
-    "version": "2",
     "button": false,
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4"
-    }
+    },
+    "default_profile": "ask"
   },
   "debugger": {
     "button": false
@@ -107,10 +107,9 @@
     "enabled_in_text_threads": false
   },
   "terminal": {
-    "button": false,
-    "toolbar": {
-      "title": false
-    }
+    "blinking": "on",
+    "cursor_shape": "bar",
+    "button": false
   },
   "auto_install_extensions": {
     "html": false
@@ -120,20 +119,13 @@
       "show_edit_predictions": true
     },
     "Python": {
-      "language_servers": ["ruff", "pyright"]
+      "language_servers": ["ruff"]
     },
     "C": {
       "format_on_save": "on"
     }
   },
   "lsp": {
-    "pyright": {
-      "settings": {
-        "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
-    },
     "ruff": {
       "initialization_options": {
         "settings": {
@@ -172,6 +164,7 @@
   },
   "file_types": {
     "C": ["*.c", "*.h", "*.C", "*.H"],
+    "C++": ["*.cpp", "*.hpp", "*.Cpp", "*.Hpp", "*.CPP", "*.HPP"],
     "YAML": [".clangd", ".clang-format"]
   }
 }
