@@ -17,7 +17,7 @@
   "restore_on_startup": "none",
   "lsp_highlight_debounce": 0,
   "auto_signature_help": true,
-  "wrap_guides": [80, 120],
+  "wrap_guides": [80, 100, 120],
   "always_treat_brackets_as_autoclosed": true,
   "toolbar": {
     "quick_actions": false
@@ -39,9 +39,6 @@
   "use_smartcase_search": true,
   "diagnostics": {
     "button": false
-  },
-  "gutter": {
-    "runnables": false
   },
   "relative_line_numbers": true,
   "inlay_hints": {
@@ -148,15 +145,6 @@
           "forwardSearch": {
             "executable": "/Applications/Skim.app/Contents/SharedSupport/displayline",
             "args": ["-r", "-n", "%l", "%p", "%f"]
-          }
-        }
-      }
-    },
-    "lua-language-server": {
-      "settings": {
-        "Lua": {
-          "diagnostics": {
-            "globals": ["vim"]
           }
         }
       }

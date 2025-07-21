@@ -1,17 +1,17 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    'rose-pine/neovim',
+    name = 'rose-pine',
     lazy = false,
     config = function()
-        require("rose-pine").setup({
-            variant = "main",
-            dark_variant = "main",
+        require('rose-pine').setup({
+            variant = 'main',
+            dark_variant = 'main',
             styles = { transparency = true },
             highlight_groups = {
-                StatusLine = { bg = "surface" },
-                StatusLineNC = { bg = "surface" },
+                StatusLine = { bg = 'surface' },
+                StatusLineNC = { bg = 'surface' },
             }
         })
-        vim.cmd.colorscheme("rose-pine")
+        vim.cmd.colorscheme('rose-pine')
     end
 }

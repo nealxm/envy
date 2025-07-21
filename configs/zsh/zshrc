@@ -20,7 +20,7 @@ export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
 export FZF_DEFAULT_OPTS="
 --color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626,hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92,prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f,gutter:#191724,border:#403d52,label:#aeaeae,query:#d9d9d9
---height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '❯ ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'
+--height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '; ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'
 "
 
 case $(uname) in
@@ -28,7 +28,6 @@ case $(uname) in
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export CC=$(brew --prefix llvm)/bin/clang
     export CXX=$(brew --prefix llvm)/bin/clang++
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     export HOMEBREW_NO_ENV_HINTS=1
 
     export PATH="/opt/homebrew/bin:\

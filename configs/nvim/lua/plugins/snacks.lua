@@ -1,5 +1,5 @@
 return {
-    "folke/snacks.nvim",
+    'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
     opts = {
@@ -36,18 +36,17 @@ return {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⣶⣤⣄⣀⠁⠋⠋⠤⠕⠒⣉⣠⣦⣶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⠶⠶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
                 keys = {
-                    { key = "s", desc = "search files",   action = ":Telescope find_files" },
-                    { key = "e", desc = "file explorer",  action = ":Explore" },
-                    { key = "g", desc = "git status",     action = ":Telescope git_status" },
-                    { key = "l", desc = "lazy dashboard", action = ":Lazy",                enabled = package.loaded.lazy ~= nil, },
-                    { key = "h", desc = "help",           action = ":Telescope help_tags" },
-                    { key = "q", desc = "quit",           action = ":qa" },
+                    { key = 'f', desc = 'find file',      action = function() vim.fn.feedkeys(':find ') end },
+                    { key = 'e', desc = 'file explorer',  action = ':Explore' },
+                    { key = 'h', desc = 'search help',    action = function() vim.fn.feedkeys(':help ') end },
+                    { key = 'l', desc = 'lazy dashboard', action = ':Lazy',                                 enabled = package.loaded.lazy ~= nil, },
+                    { key = 'q', desc = 'quit',           action = ':qa' },
                 }
             },
             sections = {
-                { section = "header" },
-                { section = "keys" },
-                { section = "startup" }
+                { section = 'header' },
+                { section = 'keys' },
+                { section = 'startup' }
             }
         }
     }
