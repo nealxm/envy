@@ -10,6 +10,8 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'move focus to the upper window' })
 
+vim.keymap.set('n', '<C-c>', '<cmd>nohlsearch<CR>')
+
 vim.keymap.set('n', '<left>', '<cmd>echo "use h to move!!"<CR>')
 vim.keymap.set('n', '<right>', '<cmd>echo "use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "use k to move!!"<CR>')

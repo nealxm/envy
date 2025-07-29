@@ -1,6 +1,5 @@
 return {
     'folke/snacks.nvim',
-    priority = 1000,
     lazy = false,
     opts = {
         dashboard = {
@@ -36,7 +35,7 @@ return {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⣶⣤⣄⣀⠁⠋⠋⠤⠕⠒⣉⣠⣦⣶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⠶⠶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
                 keys = {
-                    { key = 'f', desc = 'find file',      action = function() vim.fn.feedkeys(':find ') end },
+                    { key = 'f', desc = 'find file',      action = ':FZF' },
                     { key = 'e', desc = 'file explorer',  action = ':Explore' },
                     { key = 'h', desc = 'search help',    action = function() vim.fn.feedkeys(':help ') end },
                     { key = 'l', desc = 'lazy dashboard', action = ':Lazy',                                 enabled = package.loaded.lazy ~= nil, },
