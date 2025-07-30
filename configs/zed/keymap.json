@@ -43,7 +43,6 @@
       "ctrl-cmd-space": "editor::ShowCharacterPalette",
       "cmd-alt-g b": "git::Blame",
       "cmd-alt-g m": "git::OpenModifiedFiles",
-      "cmd-i": "editor::ShowSignatureHelp",
       "f9": "editor::ToggleBreakpoint",
       "shift-f9": "editor::EditLogBreakpoint"
     }

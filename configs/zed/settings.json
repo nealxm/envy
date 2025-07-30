@@ -72,9 +72,11 @@
     "button": false
   },
   "agent": {
+    "always_allow_tool_actions": true,
+    "use_modifier_to_send": true,
     "button": false,
     "default_model": {
-      "provider": "copilot_chat",
+      "provider": "zed.dev",
       "model": "claude-sonnet-4"
     },
     "default_profile": "ask"
@@ -105,11 +107,11 @@
   },
   "terminal": {
     "blinking": "on",
-    "cursor_shape": "bar",
     "button": false
   },
   "auto_install_extensions": {
-    "html": false
+    "html": false,
+    "Rosé Pine": true
   },
   "languages": {
     "LaTeX": {
