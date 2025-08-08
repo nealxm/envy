@@ -4,7 +4,7 @@ set -e
 source=$HOME/dev/envy/configs
 target=$HOME/.config
 
-if [[ "$source" == "$HOME/dev/envy/configs" || "$target"=="$HOME/.config" ]]; then
+if [[ "$source" == "$HOME/dev/envy/configs" || "$target" == "$HOME/.config" ]]; then
     echo "source and target dirs must be configured"
     exit 1
 fi

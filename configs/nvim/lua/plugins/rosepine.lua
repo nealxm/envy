@@ -10,7 +10,6 @@ return {
             StatusLine = { bg = 'surface' },
             StatusLineNC = { bg = 'surface' },
             Pmenu = { bg = 'base' },
-            NormalFloat = { bg = 'base' }
         }
     }
 }

@@ -1,4 +1,6 @@
 return {
-    dir = '/opt/homebrew/opt/fzf',
-    cmd = 'FZF'
+    'junegunn/fzf.vim',
+    cmd = {'Files', 'Helptags'},
+    event = 'BufLeave',
+    dependencies = { 'junegunn/fzf', dir = '/opt/homebrew/opt/fzf' }
 }

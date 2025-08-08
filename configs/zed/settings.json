@@ -72,14 +72,15 @@
     "button": false
   },
   "agent": {
-    "always_allow_tool_actions": true,
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": false,
     "use_modifier_to_send": true,
     "button": false,
     "default_model": {
-      "provider": "zed.dev",
+      "provider": "copilot_chat",
       "model": "claude-sonnet-4"
     },
-    "default_profile": "ask"
+    "default_profile": "write"
   },
   "debugger": {
     "button": false
@@ -98,7 +99,7 @@
     "**/.DS_Store",
     "**/.git/",
     "**/.venv/",
-    "**/build/",
+    "build/",
     "**/.cache/"
   ],
   "edit_predictions": {
@@ -111,7 +112,7 @@
   },
   "auto_install_extensions": {
     "html": false,
-    "Rosé Pine": true
+    "rose-pine-theme": true
   },
   "languages": {
     "LaTeX": {
@@ -147,6 +148,15 @@
           "forwardSearch": {
             "executable": "/Applications/Skim.app/Contents/SharedSupport/displayline",
             "args": ["-r", "-n", "%l", "%p", "%f"]
+          }
+        }
+      }
+    },
+    "lua-language-server": {
+      "settings": {
+        "Lua": {
+          "workspace": {
+            "library": "~/.config/nvim"
           }
         }
       }

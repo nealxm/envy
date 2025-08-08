@@ -1,20 +1,21 @@
 export GPG_TTY=$TTY
-export HISTFILE=$HOME/.local/zsh/zsh_history
+export HISTFILE=$HOME/.local/state/zsh/zsh_history
 export HISTSIZE=10000
 export SAVEHIST=100000
 setopt append_history
 setopt inc_append_history
-export LESSHISTFILE=$HOME/.local/less/lesshst
+export LESSHISTFILE=$HOME/.local/state/less/lesshst
 zstyle ':completion:*' cache-path ~/.cache/zcompcache
-export _Z_DATA=$HOME/.local/z/z
+export _ZO_DATA_DIR=$HOME/.local/state/zoxide
+export _ZO_RESOLVE_SYMLINKS=1
 export EDITOR=nvim
 export VISUAL=zed
 export CMAKE_GENERATOR=Ninja
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-export GOPATH=$HOME/.local/go
-export CARGO_HOME=$HOME/.local/rust/cargo
-export RUSTUP_HOME=$HOME/.local/rust/rustup
-export SWIFTLY_HOME_DIR=$HOME/.local/swiftly
+export GOPATH=$HOME/.local/share/go
+export CARGO_HOME=$HOME/.local/share/rust/cargo
+export RUSTUP_HOME=$HOME/.local/share/rust/rustup
+export SWIFTLY_HOME_DIR=$HOME/.local/share/swiftly
 export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
 
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
@@ -28,7 +29,9 @@ case $(uname) in
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export CC=$(brew --prefix llvm)/bin/clang
     export CXX=$(brew --prefix llvm)/bin/clang++
+    export SWIFTLY_TOOLCHAINS_DIR=$HOME/Library/Developer/Toolchains
     export HOMEBREW_NO_ENV_HINTS=1
+    export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
 
     export PATH="/opt/homebrew/bin:\
 /opt/homebrew/sbin:\
@@ -48,8 +51,6 @@ $SWIFTLY_BIN_DIR:\
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:\
 /Library/Apple/usr/bin"
 
-    . <(fzf --zsh)
-    . $(brew --prefix)/etc/profile.d/z.sh
     . $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     . $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     . $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -63,8 +64,6 @@ $SWIFTLY_BIN_DIR:\
     fi
 
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-    . <(fzf --zsh)
-    . /usr/share/z/z.sh
     . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -73,10 +72,12 @@ $SWIFTLY_BIN_DIR:\
     alias mls="ls -AFhot --color=always"
     ;;
 esac
+eval "$(zoxide init zsh --no-cmd)"
+. <(fzf --zsh)
 
-unalias z
+alias mtree="tree -aFC -I .git/ -I .DS_Store"
 nav() {
-    local dir=$(_z 2>&1 | fzf --nth 2.. --tac --no-sort --query "$1" --accept-nth 2..)
+    local dir=$(zoxide query --list --score | fzf --with-nth 2.. --no-sort --query "$*" --accept-nth 2..)
     [ -n "$dir" ] && cd "$dir"
 }
 
@@ -85,5 +86,5 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 autoload -Uz compinit
-compinit -d $HOME/.local/zsh/zcompdump
+compinit -d $HOME/.local/state/zsh/zcompdump
 eval "$(starship init zsh)"

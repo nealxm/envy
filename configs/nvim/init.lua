@@ -28,10 +28,24 @@ require('lazy').setup({
         border = 'rounded'
     },
     custom_keys = nil,
-    checker = { enabled = true }
+    checker = { enabled = true },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                'editorconfig',
+                'gzip',
+                'tarPlugin',
+                'tohtml',
+                'zipPlugin',
+                'spellfile',
+                'tutor'
+            }
+        }
+    }
 })
 require('core.opt')
 require('core.keymap')
 require('core.autocmd')
 
+vim.lsp.enable({ 'lua_ls', 'clangd' })
 vim.cmd.colorscheme('rose-pine')
