@@ -19,9 +19,9 @@ export SWIFTLY_HOME_DIR=$HOME/.local/share/swiftly
 export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
 
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
-export FZF_DEFAULT_OPTS="
---color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626,hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92,prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f,gutter:#191724,border:#403d52,label:#aeaeae,query:#d9d9d9
---height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '; ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'
+export FZF_DEFAULT_OPTS="\
+--color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626,hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92,prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f,gutter:-1,border:#403d52,label:#aeaeae,query:#d9d9d9 \
+--height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '; ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'\
 "
 
 case $(uname) in
@@ -62,8 +62,8 @@ $SWIFTLY_BIN_DIR:\
     if uwsm check may-start > /dev/null 2>&1; then
         exec uwsm start hyprland
     fi
-
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
     . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -77,7 +77,7 @@ eval "$(zoxide init zsh --no-cmd)"
 
 alias mtree="tree -aFC -I .git/ -I .DS_Store"
 nav() {
-    local dir=$(zoxide query --list --score | fzf --with-nth 2.. --no-sort --query "$*" --accept-nth 2..)
+    local dir=$(zoxide query --list --score | fzf --border-label 'navigate to directory' --with-nth 2.. --no-sort --query "$*" --accept-nth 2..)
     [ -n "$dir" ] && cd "$dir"
 }
 

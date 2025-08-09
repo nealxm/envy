@@ -37,10 +37,10 @@ keybind = ctrl+space>left_bracket=resize_split:left,10
 keybind = ctrl+space>right_bracket=resize_split:right,10
 keybind = ctrl+space>x=close_surface
 
-keybind = ctrl+f=text:nav\n
-keybind = ctrl+e=text:zed .\n
-keybind = ctrl+shift+n=text:nvim\n
-keybind = ctrl+shift+p=text:btop\n
+keybind = ctrl+space>f=text:nav\n
+keybind = ctrl+space>e=text:zed .\n
+keybind = ctrl+space>n=text:nvim\n
+keybind = ctrl+space>p=text:btop\n
 
 keybind = super+alt+shift+j=unbind
 keybind = super+alt+shift+w=unbind

@@ -14,10 +14,8 @@
       "ctrl-p": "menu::SelectPrevious",
       "ctrl-y": "menu::Confirm",
       "enter": "menu::Confirm",
-      "ctrl-enter": "menu::SecondaryConfirm",
       "ctrl-c": "menu::Cancel",
       "escape": "menu::Cancel",
-      "cmd-shift-w": "workspace::CloseWindow",
       "shift-escape": "workspace::ToggleZoom",
       "cmd-=": ["zed::IncreaseBufferFontSize", { "persist": false }],
       "cmd--": ["zed::DecreaseBufferFontSize", { "persist": false }],
@@ -54,9 +52,9 @@
     "context": "Editor && mode == full",
     "use_key_equivalents": true,
     "bindings": {
-      "shift-enter": "editor::Newline",
       "enter": "editor::Newline",
       "cmd->": "assistant::QuoteSelection",
+      "cmd-alt-e": "editor::SelectEnclosingSymbol",
       "alt-enter": "editor::OpenSelectionsInMultibuffer"
     }
   },
@@ -89,8 +87,7 @@
     "context": "Editor && mode == auto_height",
     "use_key_equivalents": true,
     "bindings": {
-      "shift-enter": "editor::Newline",
-      "ctrl-shift-enter": "editor::NewlineBelow"
+      "shift-enter": "editor::Newline"
     }
   },
   {
@@ -321,16 +318,14 @@
     "context": "Editor && extension == md",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-k v": "markdown::OpenPreviewToTheSide",
-      "cmd-shift-v": "markdown::OpenPreview"
+      //
     }
   },
   {
     "context": "Editor && extension == svg",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-k v": "svg::OpenPreviewToTheSide",
-      "cmd-shift-v": "svg::OpenPreview"
+      //
     }
   },
   {
@@ -495,7 +490,7 @@
     "context": "ProjectSearchBar && !in_replace",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-enter": "project_search::SearchInNew"
+      //
     }
   },
   {
@@ -672,10 +667,9 @@
       "escape": ["terminal::SendKeystroke", "escape"],
       "enter": ["terminal::SendKeystroke", "enter"],
       "ctrl-c": ["terminal::SendKeystroke", "ctrl-c"],
-      "ctrl-backspace": ["terminal::SendKeystroke", "ctrl-w"],
+      "ctrl-backspace": ["terminal::SendKeystroke", "ctrl-w"]
       // Using `ctrl-shift-space` in Zed requires disabling the macOS global shortcut.
       // System Preferences->Keyboard->Keyboard Shortcuts->Input Sources->Select the previous input source (uncheck)
-      "ctrl-shift-space": "terminal::ToggleViMode"
     }
   },
   {
@@ -908,7 +902,6 @@
       "g space": "editor::OpenExcerpts", // zed specific
       "g *": ["vim::MoveToNext", { "partial_word": true }],
       "g #": ["vim::MoveToPrevious", { "partial_word": true }],
-      "g shift-m": ["vim::MiddleOfLine", { "display_lines": true }],
       "g v": "vim::RestoreVisualSelection",
       "g ]": "editor::GoToDiagnostic",
       "g [": "editor::GoToPreviousDiagnostic",
@@ -932,8 +925,6 @@
       "z b": "editor::ScrollCursorBottom",
       "z a": "editor::ToggleFold",
       "z shift-a": "editor::ToggleFoldRecursive",
-      "z l": "vim::ColumnRight",
-      "z h": "vim::ColumnLeft",
       "z shift-l": "vim::HalfPageRight",
       "z shift-h": "vim::HalfPageLeft",
       // Count support
@@ -1004,7 +995,7 @@
       "shift-u": "vim::ConvertToUpperCase",
       "shift-o": "vim::OtherEnd",
       "o": "vim::OtherEndRowAware",
-      "d": "vim::VisualDelete",
+      "x": "vim::VisualDelete",
       "y": "vim::VisualYank",
       "p": "vim::Paste",
       "shift-p": ["vim::Paste", { "preserve_clipboard": true }],
@@ -1047,7 +1038,6 @@
       "ctrl-x ctrl-o": "editor::ShowCompletions",
       "ctrl-x ctrl-a": "assistant::InlineAssist", // zed specific
       "ctrl-x ctrl-c": "editor::ShowEditPrediction", // zed specific
-      "ctrl-x ctrl-l": "editor::ToggleCodeActions", // zed specific
       "ctrl-x ctrl-z": "editor::Cancel",
       "ctrl-w": "editor::DeleteToPreviousWordStart",
       "ctrl-u": "editor::DeleteToBeginningOfLine",
@@ -1055,7 +1045,6 @@
       "ctrl-d": "vim::Outdent",
       "ctrl-k": ["vim::PushDigraph", {}],
       "ctrl-v": ["vim::PushLiteral", {}],
-      "ctrl-shift-v": "editor::Paste", // note: this is *very* similar to ctrl-v in vim, but ctrl-shift-v on linux is the typical shortcut for paste when ctrl-v is already in use.
       "ctrl-r": "vim::PushRegister",
       "ctrl-s": "editor::ShowSignatureHelp"
     }
@@ -1109,9 +1098,6 @@
       "ctrl-c": "vim::NormalBefore",
       "ctrl-k": ["vim::PushDigraph", {}],
       "ctrl-v": ["vim::PushLiteral", {}],
-      "ctrl-shift-v": "editor::Paste", // note: this is *very* similar to ctrl-v in vim, but ctrl-shift-v on linux is the typical shortcut for paste when ctrl-v is already in use.
-      "ctrl-q": ["vim::PushLiteral", {}],
-      "ctrl-shift-q": ["vim::PushLiteral", {}],
       "backspace": "vim::UndoReplace",
       "tab": "vim::Tab",
       "enter": "vim::Enter",
@@ -1125,8 +1111,7 @@
       "enter": "vim::Enter",
       "ctrl-c": "vim::ClearOperators",
       "ctrl-k": ["vim::PushDigraph", {}],
-      "ctrl-v": ["vim::PushLiteral", {}],
-      "ctrl-q": ["vim::PushLiteral", {}]
+      "ctrl-v": ["vim::PushLiteral", {}]
     }
   },
   {
@@ -1162,7 +1147,7 @@
       "(": "vim::Parentheses",
       ")": "vim::Parentheses",
       // "b": "vim::AnyBrackets",
-      // "b": "vim::MiniBrackets",
+      "b": "vim::MiniBrackets",
       "[": "vim::SquareBrackets",
       "]": "vim::SquareBrackets",
       "{": "vim::CurlyBrackets",
@@ -1182,7 +1167,6 @@
     "bindings": {
       "c": "vim::CurrentLine",
       "x": "vim::Exchange",
-      "d": "editor::Rename", // zed specific
       "s": ["vim::PushChangeSurrounds", {}]
     }
   },
@@ -1345,12 +1329,7 @@
       "ctrl-w shift-l": "workspace::SwapPaneRight",
       "ctrl-w shift-k": "workspace::SwapPaneUp",
       "ctrl-w shift-j": "workspace::SwapPaneDown",
-      "ctrl-w >": "vim::ResizePaneRight",
-      "ctrl-w <": "vim::ResizePaneLeft",
-      "ctrl-w -": "vim::ResizePaneDown",
-      "ctrl-w +": "vim::ResizePaneUp",
       "ctrl-w _": "vim::MaximizePane",
-      "ctrl-w =": "vim::ResetPaneSizes",
       "ctrl-w w": "workspace::ActivateNextPane",
       "ctrl-w p": "workspace::ActivatePreviousPane",
       "ctrl-w v": "pane::SplitVertical",
