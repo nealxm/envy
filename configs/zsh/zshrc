@@ -10,7 +10,7 @@ export _ZO_DATA_DIR=$HOME/.local/state/zoxide
 export _ZO_RESOLVE_SYMLINKS=1
 export EDITOR=nvim
 export VISUAL=zed
-export CMAKE_GENERATOR=Ninja
+export CMAKE_GENERATOR="Ninja Multi-Config"
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export GOPATH=$HOME/.local/share/go
 export CARGO_HOME=$HOME/.local/share/rust/cargo
@@ -29,9 +29,11 @@ case $(uname) in
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export CC=$(brew --prefix llvm)/bin/clang
     export CXX=$(brew --prefix llvm)/bin/clang++
-    export SWIFTLY_TOOLCHAINS_DIR=$HOME/Library/Developer/Toolchains
+    export CMAKE_BUILD_PARALLEL_LEVEL=12
+    export CTEST_PARALLEL_LEVEL=12
     export HOMEBREW_NO_ENV_HINTS=1
     export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
+    export SWIFTLY_TOOLCHAINS_DIR=$HOME/Library/Developer/Toolchains
 
     export PATH="/opt/homebrew/bin:\
 /opt/homebrew/sbin:\
@@ -72,6 +74,11 @@ $SWIFTLY_BIN_DIR:\
     alias mls="ls -AFhot --color=always"
     ;;
 esac
+
+bindkey -v
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 eval "$(zoxide init zsh --no-cmd)"
 . <(fzf --zsh)
 
@@ -80,10 +87,6 @@ nav() {
     local dir=$(zoxide query --list --score | fzf --border-label 'navigate to directory' --with-nth 2.. --no-sort --query "$*" --accept-nth 2..)
     [ -n "$dir" ] && cd "$dir"
 }
-
-bindkey -v
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 autoload -Uz compinit
 compinit -d $HOME/.local/state/zsh/zcompdump

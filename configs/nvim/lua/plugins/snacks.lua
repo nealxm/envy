@@ -1,17 +1,13 @@
-return {
+---@class LazyPluginSpec
+local spec = {
     'folke/snacks.nvim',
     lazy = false,
     priority = 1000,
+
+    ---@class snacks.Config
     opts = {
-        git = { enabled = true },
-        indent = {
-            animate = { enabled = false },
-            scope = { enabled = false }
-        },
-        quickfile = {},
-        profiler = {
-            icons = nil
-        },
+
+        --- @class snacks.dashboard.Config
         dashboard = {
             preset = {
                 header = [[
@@ -45,10 +41,11 @@ return {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⣶⣤⣄⣀⠁⠋⠋⠤⠕⠒⣉⣠⣦⣶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⠶⠶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
                 keys = {
-                    { key = 'f', desc = 'find file',      action = '<cmd>Files<cr>' },
+                    { key = 'f', desc = 'find file',      action = '<cmd>lua Snacks.picker.files()<cr>' },
                     { key = 'e', desc = 'file explorer',  action = '<cmd>Explore<cr>' },
-                    { key = 'h', desc = 'search help',    action = '<cmd>Helptags<cr>' },
-                    { key = 'l', desc = 'lazy dashboard', action = '<cmd>Lazy<cr>',                         enabled = package.loaded.lazy ~= nil, },
+                    { key = 'd', desc = 'git diff',       action = '<cmd>lua Snacks.picker.git_diff()<cr>' },
+                    { key = 'h', desc = 'search help',    action = '<cmd>lua Snacks.picker.help()<cr>' },
+                    { key = 'l', desc = 'lazy dashboard', action = '<cmd>Lazy<cr>' },
                     { key = 'q', desc = 'quit',           action = '<cmd>qa<cr>' },
                 }
             },
@@ -57,6 +54,51 @@ return {
                 { section = 'keys' },
                 { section = 'startup' }
             }
+        },
+
+        ---@class snacks.git.Config
+        git = {
+            width = 0.5,
+            height = 0.5,
+            title = 'git blame',
+        },
+
+        ---@class snacks.indent.Config
+        indent = {
+            animate = { enabled = false }
+        },
+
+        ---@class snacks.profiler.Config
+        profiler = {
+            --todo: would be cool to use this when vim.pack is ready and i no longer need lazy
+        },
+
+        ---@class snacks.quickfile.Config
+        quickfile = { enabled = true },
+
+        ---@class snacks.picker.Config
+        picker = {
+            prompt = '; ',
+            matcher = {
+                sort_empty = true,
+                frecency = true
+            },
+            formatters = {
+                severity = { icons = false }
+            },
+            icons = {
+                files = { enabled = false },
+                keymaps = {},
+                tree = {},
+                undo = {},
+                ui = {},
+                diagnostics = {},
+                git = { enabled = false },
+                lsp = { enabled = false },
+                kinds = { enabled = false }
+            }
         }
     }
 }
+
+return spec

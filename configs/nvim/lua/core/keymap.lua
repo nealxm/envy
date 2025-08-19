@@ -1,6 +1,7 @@
 vim.keymap.set('n', '<leader>e', vim.cmd.Explore, { desc = 'explore files' })
-vim.keymap.set('n', '<leader>ff', vim.cmd.Files, { desc = 'find files' })
-vim.keymap.set('n', '<leader>sh', vim.cmd.Helptags, { desc = 'search help' })
+vim.keymap.set('n', '<leader>ff', Snacks.picker.files, { desc = 'find files' })
+vim.keymap.set('n', '<leader>sh', Snacks.picker.help, { desc = 'search help' })
+vim.keymap.set('n', '<leader>ob', Snacks.picker.buffers, { desc = 'open buffers' })
 vim.keymap.set('n', '<leader>od', Snacks.dashboard.open, { desc = 'open dashboard' })
 
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'next search result (centered)' })

@@ -1,4 +1,5 @@
-return {
+---@class LazyPluginSpec
+local spec = {
     'rose-pine/neovim',
     name = 'rose-pine',
     lazy = false,
@@ -13,3 +14,5 @@ return {
         }
     }
 }
+
+return spec

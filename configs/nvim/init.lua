@@ -15,7 +15,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-require('lazy').setup({
+---@class LazyConfig
+local lazyconfig = {
     defaults = { lazy = true },
     spec = { import = 'plugins' },
     install = { colorscheme = { 'rose-pine' } },
@@ -41,10 +42,11 @@ require('lazy').setup({
             }
         }
     }
-})
+}
+require('lazy').setup(lazyconfig)
 require('core.opt')
 require('core.keymap')
 require('core.autocmd')
 
-vim.lsp.enable({ 'lua_ls', 'clangd' })
+vim.lsp.enable({ 'clangd', 'lua_ls', 'neocmake' })
 vim.cmd.colorscheme('rose-pine')

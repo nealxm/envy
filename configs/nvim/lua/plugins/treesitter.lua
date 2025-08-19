@@ -1,8 +1,10 @@
-return {
+---@class LazyPluginSpec
+local spec = {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = ":TSUpdate",
     main = 'nvim-treesitter.configs',
+    ---@class TreesitterConfig
     opts = {
         auto_install = true,
         event = {
@@ -17,3 +19,5 @@ return {
         }
     }
 }
+
+return spec

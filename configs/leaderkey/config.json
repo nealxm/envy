@@ -21,6 +21,112 @@
     {
       "actions" : [
         {
+          "key" : "m",
+          "label" : "music",
+          "type" : "application",
+          "value" : "/System/Applications/Music.app"
+        },
+        {
+          "key" : "t",
+          "label" : "text",
+          "type" : "application",
+          "value" : "/System/Applications/Messages.app"
+        },
+        {
+          "key" : "c",
+          "label" : "call",
+          "type" : "application",
+          "value" : "/System/Applications/FaceTime.app"
+        },
+        {
+          "key" : "j",
+          "label" : "journal",
+          "type" : "application",
+          "value" : "/Applications/Day One.app"
+        },
+        {
+          "key" : "p",
+          "label" : "photos",
+          "type" : "application",
+          "value" : "/System/Applications/Photos.app"
+        },
+        {
+          "key" : "o",
+          "label" : "podcast",
+          "type" : "application",
+          "value" : "/System/Applications/Podcasts.app"
+        }
+      ],
+      "key" : "m",
+      "label" : "media",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "c",
+          "label" : "calendar",
+          "type" : "application",
+          "value" : "/System/Applications/Calendar.app"
+        },
+        {
+          "key" : "m",
+          "label" : "mail",
+          "type" : "application",
+          "value" : "/System/Applications/Mail.app"
+        },
+        {
+          "key" : "r",
+          "label" : "reminders",
+          "type" : "application",
+          "value" : "/System/Applications/Reminders.app"
+        },
+        {
+          "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
+          "key" : "s",
+          "label" : "safari",
+          "type" : "application",
+          "value" : "/Applications/Safari.app"
+        }
+      ],
+      "key" : "h",
+      "label" : "housekeeping",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "a",
+          "label" : "andante",
+          "type" : "application",
+          "value" : "/Applications/Andante.app"
+        },
+        {
+          "key" : "f",
+          "label" : "forscore",
+          "type" : "application",
+          "value" : "/Applications/forScore.app"
+        },
+        {
+          "key" : "v",
+          "label" : "voice memos",
+          "type" : "application",
+          "value" : "/System/Applications/VoiceMemos.app"
+        },
+        {
+          "key" : "o",
+          "label" : "obsidian",
+          "type" : "application",
+          "value" : "/Applications/Obsidian.app"
+        }
+      ],
+      "key" : "p",
+      "label" : "trombone",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
           "key" : "f",
           "label" : "files",
           "type" : "application",
@@ -78,80 +184,12 @@
       "actions" : [
         {
           "key" : "m",
-          "label" : "music",
-          "type" : "application",
-          "value" : "/System/Applications/Music.app"
-        },
-        {
-          "key" : "t",
-          "label" : "text",
-          "type" : "application",
-          "value" : "/System/Applications/Messages.app"
-        },
-        {
-          "key" : "c",
-          "label" : "call",
-          "type" : "application",
-          "value" : "/System/Applications/FaceTime.app"
-        },
-        {
-          "key" : "j",
-          "label" : "journal",
-          "type" : "application",
-          "value" : "/Applications/Day One.app"
-        },
-        {
-          "key" : "p",
-          "label" : "photos",
-          "type" : "application",
-          "value" : "/System/Applications/Photos.app"
-        }
-      ],
-      "key" : "m",
-      "label" : "media",
-      "type" : "group"
-    },
-    {
-      "actions" : [
-        {
-          "key" : "a",
-          "label" : "andante",
-          "type" : "application",
-          "value" : "/Applications/Andante.app"
-        },
-        {
-          "key" : "f",
-          "label" : "forscore",
-          "type" : "application",
-          "value" : "/Applications/forScore.app"
-        },
-        {
-          "key" : "v",
-          "label" : "voice memos",
-          "type" : "application",
-          "value" : "/System/Applications/VoiceMemos.app"
-        },
-        {
-          "key" : "o",
-          "label" : "obsidian",
-          "type" : "application",
-          "value" : "/Applications/Obsidian.app"
-        }
-      ],
-      "key" : "p",
-      "label" : "trombone",
-      "type" : "group"
-    },
-    {
-      "actions" : [
-        {
-          "key" : "m",
           "label" : "window manager",
           "type" : "application",
           "value" : "/Applications/AeroSpace.app"
         },
         {
-          "key" : "l",
+          "key" : "r",
           "label" : "rectangle",
           "type" : "application",
           "value" : "/Applications/Rectangle Pro.app"
@@ -163,14 +201,57 @@
           "value" : "rectangle-pro://execute-action?name=center"
         },
         {
+          "key" : "x",
+          "label" : "maximize",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-action?name=maximize"
+        },
+        {
+          "key" : "h",
+          "label" : "left half",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-action?name=left-half"
+        },
+        {
+          "key" : "l",
+          "label" : "right half",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-action?name=right-half"
+        },
+        {
           "key" : "v",
           "label" : "video 1080p",
           "type" : "url",
           "value" : "rectangle-pro://execute-custom?name=1080"
+        },
+        {
+          "key" : "z",
+          "label" : "restore",
+          "type" : "url",
+          "value" : "rectangle-pro://execute-action?name=restore"
         }
       ],
       "key" : "w",
       "label" : "window",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "d",
+          "label" : "discord",
+          "type" : "application",
+          "value" : "/Applications/Discord.app"
+        },
+        {
+          "key" : "s",
+          "label" : "steam",
+          "type" : "application",
+          "value" : "/Applications/Steam.app"
+        }
+      ],
+      "key" : "g",
+      "label" : "game",
       "type" : "group"
     },
     {
@@ -208,38 +289,6 @@
       ],
       "key" : "n",
       "label" : "extras",
-      "type" : "group"
-    },
-    {
-      "actions" : [
-        {
-          "key" : "c",
-          "label" : "calendar",
-          "type" : "application",
-          "value" : "/System/Applications/Calendar.app"
-        },
-        {
-          "key" : "m",
-          "label" : "mail",
-          "type" : "application",
-          "value" : "/System/Applications/Mail.app"
-        },
-        {
-          "key" : "r",
-          "label" : "reminders",
-          "type" : "application",
-          "value" : "/System/Applications/Reminders.app"
-        },
-        {
-          "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
-          "key" : "s",
-          "label" : "safari",
-          "type" : "application",
-          "value" : "/Applications/Safari.app"
-        }
-      ],
-      "key" : "h",
-      "label" : "housekeeping",
       "type" : "group"
     }
   ],

@@ -5,5 +5,8 @@
       "$HOMEBREW_PREFIX/opt/neovim/share/nvim/runtime",
       "$HOME/.local/share/nvim/lazy"
     ]
+  },
+  "runtime": {
+    "version": "LuaJIT"
   }
 }

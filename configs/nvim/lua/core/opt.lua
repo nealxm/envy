@@ -26,14 +26,11 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes'
-vim.opt.colorcolumn = '80,100,120'
 vim.opt.matchtime = 2
 vim.opt.cmdheight = 1
 vim.opt.completeopt = 'fuzzy,menuone,noinsert,noselect,preview'
 vim.opt.pumheight = 10
 vim.opt.winborder = 'rounded'
-vim.opt.conceallevel = 3
-vim.opt.concealcursor = ''
 
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -59,6 +56,3 @@ vim.opt.modifiable = true
 vim.opt.encoding = 'utf-8'
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-
-vim.opt.ttyfast = true
-vim.opt.smoothscroll = true
