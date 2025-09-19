@@ -15,8 +15,7 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export GOPATH=$HOME/.local/share/go
 export CARGO_HOME=$HOME/.local/share/rust/cargo
 export RUSTUP_HOME=$HOME/.local/share/rust/rustup
-export SWIFTLY_HOME_DIR=$HOME/.local/share/swiftly
-export SWIFTLY_BIN_DIR=$SWIFTLY_HOME_DIR/bin
+export GHCUP_USE_XDG_DIRS=1
 
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
 export FZF_DEFAULT_OPTS="\
@@ -27,13 +26,13 @@ export FZF_DEFAULT_OPTS="\
 case $(uname) in
     Darwin)
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PKG_CONFIG_PATH='/opt/homebrew/lib/pkgconfig'
     export CC=$(brew --prefix llvm)/bin/clang
     export CXX=$(brew --prefix llvm)/bin/clang++
     export CMAKE_BUILD_PARALLEL_LEVEL=12
     export CTEST_PARALLEL_LEVEL=12
     export HOMEBREW_NO_ENV_HINTS=1
     export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
-    export SWIFTLY_TOOLCHAINS_DIR=$HOME/Library/Developer/Toolchains
 
     export PATH="/opt/homebrew/bin:\
 /opt/homebrew/sbin:\
@@ -43,9 +42,9 @@ $(brew --prefix llvm)/bin:\
 /bin:\
 /usr/sbin:\
 /sbin:\
+$HOME/.local/bin:\
 $GOPATH/bin:\
 $(brew --prefix rustup)/bin:\
-$SWIFTLY_BIN_DIR:\
 /Library/TeX/texbin:\
 /System/Cryptexes/App/usr/bin:\
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:\

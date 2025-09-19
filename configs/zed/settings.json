@@ -5,9 +5,9 @@
   },
   "base_keymap": "None",
   "buffer_font_family": "JetBrains Mono",
+  "buffer_font_fallbacks": [".ZedMono"],
   "buffer_font_size": 13,
   "ui_font_size": 13,
-  "agent_font_size": 13,
 
   "bottom_dock_layout": "left_aligned",
   "pane_split_direction_horizontal": "down",
@@ -19,7 +19,6 @@
   "drag_and_drop_selection": {
     "enabled": false
   },
-  "go_to_definition_fallback": "none",
   "wrap_guides": [80, 100, 120],
   "always_treat_brackets_as_autoclosed": false,
 
@@ -37,32 +36,30 @@
     "thumb": "hover",
     "thumb_border": "none"
   },
-  "scroll_beyond_last_line": "off",
+  "scroll_beyond_last_line": "vertical_scroll_margin",
   "vertical_scroll_margin": 10,
   "horizontal_scroll_margin": 10,
   "relative_line_numbers": true,
   "search_wrap": false,
   "search": {
-    "button": false
+    "button": false,
+    "regex" :true
   },
   "use_smartcase_search": true,
   "inlay_hints": {
-    "enabled": true,
     "show_background": true,
     "edit_debounce_ms": 0,
     "scroll_debounce_ms": 0
   },
   "project_panel": {
-    "button": false
+    "button": false,
+    "starts_open": false
   },
   "outline_panel": {
     "button": false
   },
   "collaboration_panel": {
     "button": false
-  },
-  "chat_panel": {
-    "button": "never"
   },
   "git_panel": {
     "button": false
@@ -89,6 +86,8 @@
     "modal_max_width": "large"
   },
   "ensure_final_newline_on_save": false,
+  "format_on_save" : "off",
+  "soft_wrap": "none",
   "diagnostics": {
     "button": false,
     "lsp_pull_diagnostics": {
@@ -108,7 +107,9 @@
     "**/.zig-cache/",
     "**/__pycache__/",
     "build/",
-    "Build/"
+    "Build/",
+    "dist-newstyle/",
+    "bin/"
   ],
   "git": {
     "inline_blame": {
@@ -139,14 +140,6 @@
     "html": false,
     "rose-pine-theme": true
   },
-  "languages": {
-    "LaTeX": {
-      "show_edit_predictions": true
-    },
-    "C": {
-      "format_on_save": "on"
-    }
-  },
   "lsp": {
     "texlab": {
       "settings": {
@@ -167,6 +160,92 @@
     "lua-language-server": {
       "binary": {
         "arguments": ["--configpath", "$HOME/.config/zed/.luarc.json"]
+      }
+    },
+    "hls": {
+      "initialization_options": {
+        "haskell": {
+          "formattingProvider": "fourmolu",
+          "maxCompletions": 128,
+          "plugin": {
+            "cabal": {
+              "globalOn": true,
+              "codeActionsOn": true,
+              "completionOn": true,
+              "diagnosticsOn": true,
+              "hoverOn": true,
+              "symbolsOn": true
+            },
+            "cabalHaskellIntegration": { "globalOn": true },
+            "callHierarchy": { "globalOn": true },
+            "changeTypeSignature": { "globalOn": true },
+            "class": {
+              "globalOn": true,
+              "codeActionsOn": true,
+              "codeLensOn": true
+            },
+            "eval": {
+              "globalOn": true,
+              "codeActionsOn": true,
+              "codeLensOn": true,
+              "config": {
+                "diff": true,
+                "exception": false
+              }
+            },
+            "explicit-fields": {
+              "globalOn": true,
+              "codeActionsOn": true,
+              "inlayHintsOn": true
+            },
+            "explicit-fixity": { "globalOn": true },
+            "gadt": { "globalOn": true },
+            "ghcide-code-actions-bindings": { "globalOn": true },
+            "ghcide-code-actions-fill-holes": { "globalOn": true },
+            "ghcide-code-actions-imports-exports": { "globalOn": true },
+            "ghcide-code-actions-type-signatures": { "globalOn": true },
+            "ghcide-completions": {
+              "config": {
+                "autoExtendOn": true,
+                "snippetsOn": true
+              },
+              "globalOn": true
+            },
+            "ghcide-hover-and-symbols": {
+              "globalOn": true,
+              "hoverOn": true,
+              "symbolsOn": true
+            },
+            "ghcide-type-lenses": {
+              "config": { "mode": "always" },
+              "globalOn": true
+            },
+            "hlint": {
+              "globalOn": true,
+              "codeActionsOn": true,
+              "config": {
+                "flags": []
+              },
+              "diagnosticsOn": true
+            },
+            "importLens": {
+              "globalOn": true,
+              "codeActionsOn": true,
+              "codeLensOn": true,
+              "inlayHintsOn": true
+            },
+            "moduleName": { "globalOn": true },
+            "overloaded-record-dot": { "globalOn": true },
+            "pragmas-completion": { "globalOn": true },
+            "pragmas-disable": { "globalOn": true },
+            "pragmas-suggest": { "globalOn": true },
+            "qualifyImportedNames": { "globalOn": true },
+            "rename": {
+              "config": { "crossModule": true },
+              "globalOn": true
+            }
+          }
+        }
       }
     }
   },

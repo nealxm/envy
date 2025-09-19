@@ -14,6 +14,7 @@
       "ctrl-p": "menu::SelectPrevious",
       "ctrl-y": "menu::Confirm",
       "enter": "menu::Confirm",
+      "ctrl-enter": "menu::SecondaryConfirm",
       "ctrl-c": "menu::Cancel",
       "escape": "menu::Cancel",
       "shift-escape": "workspace::ToggleZoom",
@@ -25,9 +26,8 @@
       "cmd-//": "zed::OpenKeymapEditor",
       "cmd-;": "dev::OpenKeyContextView",
       "cmd-q": "zed::Quit",
-      "cmd-m": "zed::Minimize",
-      "ctrl-cmd-z": "edit_prediction::RateCompletions",
       "ctrl-cmd-i": "edit_prediction::ToggleMenu",
+      "ctrl-shift-l": "editor::RestartLanguageServer",
       "ctrl-cmd-l": "lsp_tool::ToggleMenu"
     }
   },
@@ -38,9 +38,9 @@
       "backspace": "editor::Backspace",
       "tab": "editor::Tab",
       "shift-tab": "editor::Backtab",
-      "cmd-x": "editor::Cut",
-      "cmd-c": "editor::Copy",
       "cmd-v": "editor::Paste",
+      "cmd-shift-i": "editor::Format",
+      "alt-shift-o": "editor::OrganizeImports",
       "ctrl-cmd-space": "editor::ShowCharacterPalette",
       "cmd-alt-g b": "git::Blame",
       "cmd-alt-g m": "git::OpenModifiedFiles",
@@ -53,7 +53,7 @@
     "use_key_equivalents": true,
     "bindings": {
       "enter": "editor::Newline",
-      "cmd->": "assistant::QuoteSelection",
+      "cmd->": "agent::QuoteSelection",
       "cmd-alt-e": "editor::SelectEnclosingSymbol",
       "alt-enter": "editor::OpenSelectionsInMultibuffer"
     }
@@ -105,7 +105,7 @@
     }
   },
   {
-    "context": "Editor && !agent_diff",
+    "context": "Editor && !agent_diff && !AgentPanel",
     "use_key_equivalents": true,
     "bindings": {
       //
@@ -136,12 +136,7 @@
     "context": "AgentPanel",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-i": "agent::ToggleProfileSelector",
-      "cmd-alt-/": "agent::ToggleModelSelector",
-      "cmd-shift-a": "agent::ToggleContextPicker",
-      "cmd-shift-i": "agent::ToggleOptionsMenu",
-      "cmd->": "assistant::QuoteSelection",
-      "cmd-alt-e": "agent::RemoveAllContext"
+      "cmd->": "agent::QuoteSelection"
     }
   },
   {
@@ -154,7 +149,7 @@
     "context": "AgentPanel > Markdown",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-c": "markdown::CopyAsMarkdown"
+      //
     }
   },
   {
@@ -214,7 +209,20 @@
     }
   },
   {
-    "context": "AcpThread > Editor",
+    "context": "AcpThread > ModeSelector",
+    "bindings": {
+      //
+    }
+  },
+  {
+    "context": "AcpThread > Editor && !use_modifier_to_send",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    }
+  },
+  {
+    "context": "AcpThread > Editor && use_modifier_to_send",
     "use_key_equivalents": true,
     "bindings": {
       //
@@ -243,7 +251,7 @@
     "context": "BufferSearchBar",
     "use_key_equivalents": true,
     "bindings": {
-      //
+      "tab": "buffer_search::FocusEditor"
     }
   },
   {
@@ -266,9 +274,7 @@
     "context": "ProjectSearchBar",
     "use_key_equivalents": true,
     "bindings": {
-      "escape": "project_search::ToggleFocus",
-      "n": "vim::MoveToNextMatch",
-      "shift-n": "vim::MoveToPreviousMatch"
+      "escape": "project_search::ToggleFocus"
     }
   },
   {
@@ -352,9 +358,13 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
+      // Change the default action on `menu::Confirm` by setting the parameter
+      // "alt-cmd-o": ["projects::OpenRecent", {"create_new_window": true }],
+      "alt-cmd-o": ["projects::OpenRecent", { "create_new_window": false }],
       "cmd-b": "workspace::ToggleLeftDock",
       "cmd-r": "workspace::ToggleRightDock",
       "cmd-j": "workspace::ToggleBottomDock",
+      "cmd-shift-t": "pane::ReopenClosedItem",
       "cmd-p": "file_finder::Toggle",
       "ctrl-tab": "tab_switcher::Toggle",
       "ctrl-shift-tab": ["tab_switcher::Toggle", { "select_last": true }],
@@ -366,7 +376,12 @@
     "context": "Workspace && !Terminal",
     "use_key_equivalents": true,
     "bindings": {
-      //
+      "cmd-alt-r": "task::Rerun",
+      // also possible to spawn tasks by name:
+      // "foo-bar": ["task::Spawn", { "task_name": "MyTask", "reveal_target": "dock" }]
+      // or by tag:
+      // "foo-bar": ["task::Spawn", { "task_tag": "MyTag" }],
+      "f1": ["task::Spawn", { "task_name": "cmake build" }]
     }
   },
   {
@@ -463,7 +478,7 @@
     "context": "!ContextEditor > Editor && mode == full",
     "use_key_equivalents": true,
     "bindings": {
-      //
+      "ctrl-:": "editor::ToggleInlayHints"
     }
   },
   {
@@ -615,10 +630,17 @@
     }
   },
   {
-    "context": "FileFinder || (FileFinder > Picker > Editor)",
+    "context": "ToolchainSelector",
     "use_key_equivalents": true,
     "bindings": {
       //
+    }
+  },
+  {
+    "context": "FileFinder || (FileFinder > Picker > Editor)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-i": "file_finder::ToggleFilterMenu"
     }
   },
   {
@@ -640,6 +662,13 @@
     }
   },
   {
+    "context": "StashList || (StashList > Picker > Editor)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-shift-backspace": "stash_picker::DropStashItem"
+    }
+  },
+  {
     "context": "Terminal",
     "use_key_equivalents": true,
     "bindings": {
@@ -652,15 +681,18 @@
       "cmd-right": ["terminal::SendText", "\u0005"],
       "cmd-left": ["terminal::SendText", "\u0001"],
       // Terminal.app compatibility
-      "alt-left": ["terminal::SendText", "\u001bb"],
-      "alt-right": ["terminal::SendText", "\u001bf"],
       "alt-b": ["terminal::SendText", "\u001bb"],
       "alt-f": ["terminal::SendText", "\u001bf"],
       "ctrl-delete": ["terminal::SendText", "\u001bd"],
       "escape": ["terminal::SendKeystroke", "escape"],
       "enter": ["terminal::SendKeystroke", "enter"],
       "ctrl-c": ["terminal::SendKeystroke", "ctrl-c"],
-      "ctrl-backspace": ["terminal::SendKeystroke", "ctrl-w"]
+      "ctrl-backspace": ["terminal::SendKeystroke", "ctrl-w"],
+      "cmd-up": "terminal::ScrollPageUp",
+      "cmd-down": "terminal::ScrollPageDown",
+      // Using `ctrl-shift-space` in Zed requires disabling the macOS global shortcut.
+      // System Preferences->Keyboard->Keyboard Shortcuts->Input Sources->Select the previous input source (uncheck)
+      "ctrl-shift-space": "terminal::ToggleViMode"
     }
   },
   {
@@ -686,6 +718,12 @@
   },
   {
     "context": "ConfigureContextServerModal > Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    }
+  },{
+    "context": "ContextServerToolsModal",
     "use_key_equivalents": true,
     "bindings": {
       //
@@ -716,7 +754,8 @@
     "context": "RunModal",
     "use_key_equivalents": true,
     "bindings": {
-      //
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
     }
   },
   {
@@ -729,11 +768,8 @@
     "context": "KeymapEditor",
     "use_key_equivalents": true,
     "bindings": {
-      "backspace": "keymap_editor::DeleteBinding",
       "cmd-f": "search::FocusSearch",
-      "cmd-alt-f": "keymap_editor::ToggleKeystrokeSearch",
-      "enter": "keymap_editor::EditBinding",
-      "cmd-t": "keymap_editor::ShowMatchingKeybinds"
+      "cmd-alt-f": "keymap_editor::ToggleKeystrokeSearch"
     }
   },
   {
@@ -766,6 +802,13 @@
       //
     }
   },
+  {
+    "context": "InvalidBuffer",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-shift-enter": "workspace::OpenWithSystem"
+    }
+  },
 
   // vim start
   {
@@ -788,32 +831,17 @@
       "(": "vim::SentenceBackward",
       ")": "vim::SentenceForward",
       "|": "vim::GoToColumn",
-      "] ]": "vim::NextSectionStart",
-      "] [": "vim::NextSectionEnd",
-      "[ [": "vim::PreviousSectionStart",
-      "[ ]": "vim::PreviousSectionEnd",
-      "] m": "vim::NextMethodStart",
-      "] shift-m": "vim::NextMethodEnd",
-      "[ m": "vim::PreviousMethodStart",
-      "[ shift-m": "vim::PreviousMethodEnd",
-      "[ /": "vim::PreviousComment",
-      "] /": "vim::NextComment",
-      "[ -": "vim::PreviousLesserIndent",
-      "[ +": "vim::PreviousGreaterIndent",
-      "[ =": "vim::PreviousSameIndent",
-      "] -": "vim::NextLesserIndent",
-      "] +": "vim::NextGreaterIndent",
-      "] =": "vim::NextSameIndent",
-      "] space": "vim::InsertEmptyLineBelow",
-      "[ space": "vim::InsertEmptyLineAbove",
-      "[ e": "editor::MoveLineUp",
-      "] e": "editor::MoveLineDown",
 
       // Word motions
       "w": "vim::NextWordStart",
       "e": "vim::NextWordEnd",
       "b": "vim::PreviousWordStart",
       "g e": "vim::PreviousWordEnd",
+      // Subword motions
+      // "w": "vim::NextSubwordStart",
+      // "b": "vim::PreviousSubwordStart",
+      // "e": "vim::NextSubwordEnd",
+      // "g e": "vim::PreviousSubwordEnd",
       "shift-w": ["vim::NextWordStart", { "ignore_punctuation": true }],
       "shift-e": ["vim::NextWordEnd", { "ignore_punctuation": true }],
       "shift-b": ["vim::PreviousWordStart", { "ignore_punctuation": true }],
@@ -826,10 +854,6 @@
       "n": "vim::MoveToNextMatch",
       "shift-n": "vim::MoveToPreviousMatch",
       "%": "vim::Matching",
-      "] }": ["vim::UnmatchedForward", { "char": "}" }],
-      "[ {": ["vim::UnmatchedBackward", { "char": "{" }],
-      "] )": ["vim::UnmatchedForward", { "char": ")" }],
-      "[ (": ["vim::UnmatchedBackward", { "char": "(" }],
       "f": ["vim::PushFindForward", { "before": false, "multiline": false }],
       "t": ["vim::PushFindForward", { "before": true, "multiline": false }],
       "shift-f": [
@@ -866,8 +890,6 @@
       "g r a": "editor::ToggleCodeActions",
       "g g": "vim::StartOfDocument",
       "g B": "editor::BlameHover",
-      "g t": "pane::ActivateNextItem",
-      "g shift-t": "pane::ActivatePreviousItem",
       "g d": "editor::GoToDefinition",
       "g shift-d": "editor::GoToDeclaration",
       "g y": "editor::GoToTypeDefinition",
@@ -887,6 +909,8 @@
       "g space": "editor::OpenExcerpts", // zed specific
       "g *": ["vim::MoveToNext", { "partial_word": true }],
       "g #": ["vim::MoveToPrevious", { "partial_word": true }],
+      "g j": ["vim::Down", { "display_lines": true }],
+      "g k": ["vim::Up", { "display_lines": true }],
       "g v": "vim::RestoreVisualSelection",
       "g i": "vim::InsertAtPrevious",
       "g ,": "vim::ChangeListNewer",
@@ -902,8 +926,6 @@
       "z z": "editor::ScrollCursorCenter",
       "z b": "editor::ScrollCursorBottom",
       "z a": "editor::ToggleFold",
-      "z shift-l": "vim::HalfPageRight",
-      "z shift-h": "vim::HalfPageLeft",
       // Count support
       "1": ["vim::Number", 1],
       "2": ["vim::Number", 2],
@@ -918,6 +940,38 @@
       "ctrl-w shift-d": "editor::GoToTypeDefinitionSplit",
       "ctrl-w space": "editor::OpenExcerptsSplit",
       ".": "vim::Repeat"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "bindings": {
+      "] ]": "vim::NextSectionStart",
+      "] [": "vim::NextSectionEnd",
+      "[ [": "vim::PreviousSectionStart",
+      "[ ]": "vim::PreviousSectionEnd",
+      "] m": "vim::NextMethodStart",
+      "] shift-m": "vim::NextMethodEnd",
+      "[ m": "vim::PreviousMethodStart",
+      "[ shift-m": "vim::PreviousMethodEnd",
+      "[ /": "vim::PreviousComment",
+      "] /": "vim::NextComment",
+      "[ -": "vim::PreviousLesserIndent",
+      "[ +": "vim::PreviousGreaterIndent",
+      "[ =": "vim::PreviousSameIndent",
+      "] -": "vim::NextLesserIndent",
+      "] +": "vim::NextGreaterIndent",
+      "] =": "vim::NextSameIndent",
+      "] space": "vim::InsertEmptyLineBelow",
+      "[ space": "vim::InsertEmptyLineAbove",
+      "[ e": "editor::MoveLineUp",
+      "] e": "editor::MoveLineDown",
+      "] }": ["vim::UnmatchedForward", { "char": "}" }],
+      "[ {": ["vim::UnmatchedBackward", { "char": "{" }],
+      "] )": ["vim::UnmatchedForward", { "char": ")" }],
+      "[ (": ["vim::UnmatchedBackward", { "char": "(" }],
+      // tree-sitter related commands
+      "[ x": "vim::SelectLargerSyntaxNode",
+      "] x": "vim::SelectSmallerSyntaxNode"
     }
   },
   {
@@ -943,11 +997,7 @@
       "!": "vim::PushShellCommand",
       "g u": "vim::PushLowercase",
       "g shift-u": "vim::PushUppercase",
-      "g ~": "vim::PushOppositeCase",
       "g ?": "vim::PushRot47",
-      // tree-sitter related commands
-      "[ x": "vim::SelectLargerSyntaxNode",
-      "] x": "vim::SelectSmallerSyntaxNode",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
       "] c": "editor::GoToHunk",
@@ -969,11 +1019,13 @@
       ":": "vim::VisualCommand",
       "u": "vim::ConvertToLowerCase",
       "shift-u": "vim::ConvertToUpperCase",
+      "d": "vim::VisualDelete",
       "x": "vim::VisualDelete",
       "y": "vim::VisualYank",
       "p": "vim::Paste",
       "shift-p": ["vim::Paste", { "preserve_clipboard": true }],
       "c": "vim::Substitute",
+      "s": "vim::Substitute",
       "~": "vim::ChangeCase",
       "*": ["vim::MoveToNext", { "partial_word": true }],
       "#": ["vim::MoveToPrevious", { "partial_word": true }],
@@ -998,10 +1050,7 @@
       "g shift-r": ["vim::Paste", { "preserve_clipboard": true }],
       "g c": "vim::ToggleComments",
       "g ?": "vim::ConvertToRot47",
-      "\"": "vim::PushRegister",
-      // tree-sitter related commands
-      "[ x": "editor::SelectLargerSyntaxNode",
-      "] x": "editor::SelectSmallerSyntaxNode"
+      "\"": "vim::PushRegister"
     }
   },
   {
@@ -1022,6 +1071,12 @@
       "ctrl-r": "vim::PushRegister",
       "ctrl-o": "vim::TemporaryNormal",
       "ctrl-s": "editor::ShowSignatureHelp"
+    }
+  },
+  {
+    "context": "showing_completions",
+    "bindings": {
+      //
     }
   },
   {
@@ -1086,7 +1141,7 @@
   {
     "context": "Editor && vim_mode == waiting && (vim_operator == ys || vim_operator == cs)",
     "bindings": {
-      //
+      "ctrl-c": "vim::SwitchToNormalMode"
     }
   },
   {
@@ -1097,7 +1152,7 @@
     }
   },
   {
-    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == helix_next || vim_operator == helix_previous",
     "bindings": {
       "w": "vim::Word",
       "shift-w": ["vim::Word", { "ignore_punctuation": true }],
@@ -1129,6 +1184,24 @@
       "f": "vim::Method",
       "c": "vim::Class",
       "e": "vim::EntireFile"
+    }
+  },
+  {
+    "context": "vim_operator == helix_m",
+    "bindings": {
+      //helix is silly
+    }
+  },
+  {
+    "context": "vim_operator == helix_next",
+    "bindings": {
+      //helix is silly
+    }
+  },
+  {
+    "context": "vim_operator == helix_previous",
+    "bindings": {
+      //helix is silly
     }
   },
   {
@@ -1334,7 +1407,6 @@
       "shift-d": "project_panel::Delete",
       "shift-r": "project_panel::Rename",
       "x": "project_panel::RevealInFileManager",
-      "s": "project_panel::OpenWithSystem",
       "z d": "project_panel::CompareMarkedFiles",
       "] c": "project_panel::SelectNextGitEntry",
       "[ c": "project_panel::SelectPrevGitEntry",
@@ -1360,8 +1432,8 @@
     "context": "GitPanel && ChangesList",
     "use_key_equivalents": true,
     "bindings": {
-      "j": "menu::SelectNext",
-      "k": "menu::SelectPrevious"
+      "k": "menu::SelectPrevious",
+      "j": "menu::SelectNext"
     }
   },
   {
@@ -1379,6 +1451,8 @@
   {
     "context": "Picker > Editor",
     "bindings": {
+      "left": "editor::MoveLeft",
+      "right": "editor::MoveRight",
       "ctrl-u": "editor::DeleteToBeginningOfLine",
       "ctrl-w": "editor::DeleteToPreviousWordStart"
     }

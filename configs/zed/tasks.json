@@ -1,0 +1,7 @@
+[
+  {
+    "label": "cmake build",
+    "command": "cmake --build build",
+    "reveal": "no_focus"
+  }
+]
