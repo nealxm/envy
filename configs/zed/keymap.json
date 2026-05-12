@@ -23,13 +23,20 @@
       "cmd-0": ["zed::ResetBufferFontSize", { "persist": false }],
       "cmd-,": "zed::OpenSettings",
       "cmd-.": "zed::OpenKeymap",
-      "cmd-//": "zed::OpenKeymapEditor",
       "cmd-;": "dev::OpenKeyContextView",
       "cmd-q": "zed::Quit",
       "ctrl-cmd-i": "edit_prediction::ToggleMenu",
-      "ctrl-shift-l": "editor::RestartLanguageServer",
-      "ctrl-cmd-l": "lsp_tool::ToggleMenu"
-    }
+      "ctrl-cmd-l": "lsp_tool::ToggleMenu",
+      "ctrl-cmd-c": "editor::DisplayCursorNames",
+      "ctrl-cmd-s": "workspace::ToggleWorktreeSecurity",
+    },
+  },
+  {
+    "context": "menu",
+    "bindings": {
+      "right": "menu::SelectChild",
+      "left": "menu::SelectParent",
+    },
   },
   {
     "context": "Editor",
@@ -40,23 +47,23 @@
       "shift-tab": "editor::Backtab",
       "cmd-v": "editor::Paste",
       "cmd-shift-i": "editor::Format",
-      "alt-shift-o": "editor::OrganizeImports",
-      "ctrl-cmd-space": "editor::ShowCharacterPalette",
       "cmd-alt-g b": "git::Blame",
       "cmd-alt-g m": "git::OpenModifiedFiles",
+      "cmd-alt-g r": "git::ReviewDiff",
+      "cmd-i": "editor::ShowSignatureHelp",
       "f9": "editor::ToggleBreakpoint",
-      "shift-f9": "editor::EditLogBreakpoint"
-    }
+      "shift-f9": "editor::EditLogBreakpoint",
+    },
   },
   {
     "context": "Editor && mode == full",
     "use_key_equivalents": true,
     "bindings": {
       "enter": "editor::Newline",
-      "cmd->": "agent::QuoteSelection",
+      "cmd->": "agent::AddSelectionToThread",
       "cmd-alt-e": "editor::SelectEnclosingSymbol",
-      "alt-enter": "editor::OpenSelectionsInMultibuffer"
-    }
+      "alt-enter": "editor::OpenSelectionsInMultibuffer",
+    },
   },
   {
     "context": "Editor && multibuffer",
@@ -65,240 +72,223 @@
       "cmd-up": "editor::MoveToStartOfExcerpt",
       "cmd-down": "editor::MoveToStartOfNextExcerpt",
       "cmd-shift-up": "editor::SelectToStartOfExcerpt",
-      "cmd-shift-down": "editor::SelectToStartOfNextExcerpt"
-    }
+      "cmd-shift-down": "editor::SelectToStartOfNextExcerpt",
+    },
   },
   {
     "context": "Editor && mode == full && edit_prediction",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-n": "editor::NextEditPrediction",
-      "ctrl-p": "editor::PreviousEditPrediction"
-    }
-  },
-  {
-    "context": "Editor && !edit_prediction",
-    "use_key_equivalents": true,
-    "bindings": {
-      //defined in vim
-    }
+      "ctrl-p": "editor::PreviousEditPrediction",
+    },
   },
   {
     "context": "Editor && mode == auto_height",
     "use_key_equivalents": true,
     "bindings": {
-      "shift-enter": "editor::Newline"
-    }
+      "shift-enter": "editor::Newline",
+    },
   },
   {
     "context": "Markdown",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-c": "markdown::Copy"
-    }
+      "cmd-c": "markdown::Copy",
+    },
   },
   {
-    "context": "Editor && jupyter && !ContextEditor",
+    "context": "Editor && jupyter",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Editor && !agent_diff && !AgentPanel",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "AgentDiff",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Editor && editor_agent_diff",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
-  },
-  {
-    "context": "ContextEditor > Editor",
-    "use_key_equivalents": true,
-    "bindings": {
-      //
-    }
+    },
   },
   {
     "context": "AgentPanel",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd->": "agent::QuoteSelection"
-    }
-  },
-  {
-    "context": "AgentPanel > NavigationMenu",
-    "bindings": {
       //
-    }
+    },
   },
   {
     "context": "AgentPanel > Markdown",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
-  },
-  {
-    "context": "AgentPanel && prompt_editor",
-    "use_key_equivalents": true,
-    "bindings": {
-      //
-    }
-  },
-  {
-    "context": "AgentPanel && external_agent_thread",
-    "use_key_equivalents": true,
-    "bindings": {
-      //
-    }
-  },
-  {
-    "context": "MessageEditor && !Picker > Editor && !use_modifier_to_send",
-    "use_key_equivalents": true,
-    "bindings": {
-      //
-    }
-  },
-  {
-    "context": "MessageEditor && !Picker > Editor && use_modifier_to_send",
-    "use_key_equivalents": true,
-    "bindings": {
-      "cmd-enter": "agent::Chat",
-      "enter": "editor::Newline"
-    }
-  },
-  {
-    "context": "EditMessageEditor > Editor",
-    "use_key_equivalents": true,
-    "bindings": {
-      //
-    }
+    },
   },
   {
     "context": "AgentFeedbackMessageEditor > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
-  },
-  {
-    "context": "ContextStrip",
-    "use_key_equivalents": true,
-    "bindings": {
-      //
-    }
+    },
   },
   {
     "context": "AgentConfiguration",
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "AcpThread > ModeSelector",
     "bindings": {
       //
-    }
+    },
+  },
+  {
+    "context": "AcpThread",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "AcpThread > Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "AcpThread > Editor && start_of_input",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "AcpThread > Editor && end_of_input",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "AcpThread > Editor && mode == full",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
   },
   {
     "context": "AcpThread > Editor && !use_modifier_to_send",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "AcpThread > Editor && use_modifier_to_send",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "ThreadHistory",
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "ThreadHistory > Editor",
     "bindings": {
       //
-    }
+    },
   },
   {
-    "context": "PromptLibrary",
+    "context": "RulesLibrary",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "BufferSearchBar",
     "use_key_equivalents": true,
     "bindings": {
-      "tab": "buffer_search::FocusEditor"
-    }
+      "tab": "buffer_search::FocusEditor",
+    },
   },
   {
     "context": "BufferSearchBar && in_replace > Editor",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-y": "search::ReplaceNext",
-      "ctrl-shift-y": "search::ReplaceAll"
-    }
+      "ctrl-shift-y": "search::ReplaceAll",
+    },
   },
   {
     "context": "BufferSearchBar && !in_replace > Editor",
     "use_key_equivalents": true,
     "bindings": {
+      //
+    },
+  },
+  {
+    "context": "BufferSearchBar && !in_replace > Editor",
+    "bindings": {
       "up": "search::PreviousHistoryQuery",
-      "down": "search::NextHistoryQuery"
-    }
+      "down": "search::NextHistoryQuery",
+    },
   },
   {
     "context": "ProjectSearchBar",
     "use_key_equivalents": true,
     "bindings": {
-      "escape": "project_search::ToggleFocus"
-    }
+      "escape": "project_search::ToggleFocus",
+    },
   },
   {
     "context": "ProjectSearchBar > Editor",
-    "use_key_equivalents": true,
     "bindings": {
       "up": "search::PreviousHistoryQuery",
-      "down": "search::NextHistoryQuery"
-    }
+      "down": "search::NextHistoryQuery",
+    },
   },
   {
     "context": "ProjectSearchBar && in_replace > Editor",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-y": "search::ReplaceNext",
-      "ctrl-shift-y": "search::ReplaceAll"
-    }
+      "ctrl-shift-y": "search::ReplaceAll",
+    },
+  },
+  {
+    "context": "ProjectSearchBar && !in_replace > Editor",
+    "bindings": {
+      //
+    },
   },
   {
     "context": "ProjectSearchView",
     "use_key_equivalents": true,
     "bindings": {
-      "escape": "project_search::ToggleFocus"
-    }
+      "escape": "project_search::ToggleFocus",
+    },
   },
   {
     "context": "Pane",
@@ -311,8 +301,8 @@
       "alt-cmd-c": "search::ToggleCaseSensitive",
       "alt-cmd-w": "search::ToggleWholeWord",
       "alt-cmd-f": "project_search::ToggleFilters",
-      "alt-cmd-x": "search::ToggleRegex"
-    }
+      "alt-cmd-x": "search::ToggleRegex",
+    },
   },
   // Bindings from VS Code
   {
@@ -320,35 +310,37 @@
     "use_key_equivalents": true,
     "bindings": {
       //nobody likes vscode
-    }
+    },
   },
   {
     "context": "Editor && extension == md",
     "use_key_equivalents": true,
     "bindings": {
-      //
-    }
+      "cmd-k v": "markdown::OpenPreviewToTheSide",
+      "cmd-shift-v": "markdown::OpenPreview",
+    },
   },
   {
     "context": "Editor && extension == svg",
     "use_key_equivalents": true,
     "bindings": {
-      //
-    }
+      "cmd-k v": "svg::OpenPreviewToTheSide",
+      "cmd-shift-v": "svg::OpenPreview",
+    },
   },
   {
     "context": "Editor && mode == full",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Pane",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Workspace",
@@ -366,11 +358,11 @@
       "cmd-j": "workspace::ToggleBottomDock",
       "cmd-shift-t": "pane::ReopenClosedItem",
       "cmd-p": "file_finder::Toggle",
-      "ctrl-tab": "tab_switcher::Toggle",
       "ctrl-shift-tab": ["tab_switcher::Toggle", { "select_last": true }],
+      "ctrl-tab": "tab_switcher::Toggle",
       "f5": "debugger::Rerun",
-      "cmd-w": "workspace::CloseActiveDock"
-    }
+      "cmd-w": "workspace::CloseActiveDock",
+    },
   },
   {
     "context": "Workspace && !Terminal",
@@ -381,22 +373,43 @@
       // "foo-bar": ["task::Spawn", { "task_name": "MyTask", "reveal_target": "dock" }]
       // or by tag:
       // "foo-bar": ["task::Spawn", { "task_tag": "MyTag" }],
-      "f1": ["task::Spawn", { "task_name": "cmake build" }]
-    }
+      "f1": ["task::Spawn", { "task_name": "cmake build" }],
+    },
+  },
+  {
+    "context": "ThreadsSidebar",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "ThreadsSidebar && not_searching",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "ThreadSwitcher",
+    "bindings": {
+      //
+    },
   },
   {
     "context": "Workspace && debugger_running",
     "use_key_equivalents": true,
     "bindings": {
-      "f5": null
-    }
+      "f5": null,
+      "f11": "debugger::StepInto",
+    },
   },
   {
     "context": "Workspace && debugger_stopped",
     "use_key_equivalents": true,
     "bindings": {
-      "f5": "debugger::Continue"
-    }
+      "f5": "debugger::Continue",
+    },
   },
   // Bindings from Sublime Text
   {
@@ -404,7 +417,7 @@
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   // Bindings from Atom
   {
@@ -412,15 +425,15 @@
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   // Bindings that should be unified with bindings for more general actions
   {
     "context": "Editor && renaming",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-y": "editor::ConfirmRename"
-    }
+      "ctrl-y": "editor::ConfirmRename",
+    },
   },
   {
     "context": "Editor && showing_completions",
@@ -428,190 +441,202 @@
     "bindings": {
       "ctrl-y": "editor::ConfirmCompletion",
       "ctrl-alt-y": "editor::ConfirmCompletionReplace",
-      "ctrl-shift-y": "editor::ComposeCompletion"
-    }
+      "ctrl-shift-y": "editor::ComposeCompletion",
+    },
+  },
+  {
+    "context": "Editor && in_snippet && has_next_tabstop && !showing_completions",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "Editor && in_snippet && has_previous_tabstop && !showing_completions",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
   },
   {
     "context": "Editor && edit_prediction",
     "bindings": {
       "cmd-y": "editor::AcceptEditPrediction",
-      "ctrl-cmd-y": "editor::AcceptPartialEditPrediction"
-    }
+      "ctrl-cmd-y": "editor::AcceptNextWordEditPrediction",
+    },
   },
   {
-    "context": "Editor && edit_prediction_conflict",
-    "use_key_equivalents": true,
+    "context": "Editor && edit_prediction && edit_prediction_mode == eager && !showing_completions",
     "bindings": {
       "cmd-y": "editor::AcceptEditPrediction",
-      "ctrl-cmd-y": "editor::AcceptPartialEditPrediction"
-    }
+      "ctrl-cmd-y": "editor::AcceptNextWordEditPrediction",
+    },
   },
   {
     "context": "Editor && showing_code_actions",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-y": "editor::ConfirmCodeAction"
-    }
+      "ctrl-y": "editor::ConfirmCodeAction",
+    },
   },
   {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-p": "editor::ContextMenuPrevious",
-      "ctrl-n": "editor::ContextMenuNext"
-    }
+      "ctrl-n": "editor::ContextMenuNext",
+    },
   },
   {
     "context": "Editor && showing_signature_help && !showing_completions",
     "bindings": {
       //defined in vim
-    }
+    },
   },
   // Custom bindings
   {
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
-    "context": "!ContextEditor > Editor && mode == full",
+    "context": "!AcpThread > Editor && mode == full",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-:": "editor::ToggleInlayHints"
-    }
+      "ctrl-:": "editor::ToggleInlayHints",
+    },
   },
   {
-    "context": "PromptEditor",
+    "context": "InlineAssistant > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Prompt",
     "use_key_equivalents": true,
     "bindings": {
-      "h": "menu::SelectPrevious",
-      "l": "menu::SelectNext"
-    }
+      //
+    },
   },
   {
     "context": "ProjectSearchBar && !in_replace",
     "use_key_equivalents": true,
     "bindings": {
-      //
-    }
+      "cmd-enter": "project_search::SearchInNew",
+    },
   },
   {
     "context": "OutlinePanel && not_editing",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "ProjectPanel",
     "use_key_equivalents": true,
     "bindings": {
       //defined in netrw
-    }
+    },
   },
   {
     "context": "ProjectPanel && not_editing",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "VariableList",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
-    "context": "GitPanel && ChangesList",
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "GitPanel && CommitEditor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "GitDiff > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "CommitEditor > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "GitPanel",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "GitCommit > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "DebugPanel",
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "BreakpointList",
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "CollabPanel && not_editing",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "CollabPanel",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "(CollabPanel && editing) > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "ChannelModal",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Picker > Editor",
@@ -619,29 +644,29 @@
     "bindings": {
       "ctrl-p": "menu::SelectPrevious",
       "ctrl-n": "menu::SelectNext",
-      "ctrl-y": "picker::ConfirmCompletion"
-    }
+      "ctrl-y": "picker::ConfirmCompletion",
+    },
   },
   {
     "context": "ChannelModal > Picker > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "ToolchainSelector",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "FileFinder || (FileFinder > Picker > Editor)",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-shift-i": "file_finder::ToggleFilterMenu"
-    }
+      "cmd-shift-i": "file_finder::ToggleFilterMenu",
+    },
   },
   {
     "context": "FileFinder || (FileFinder > Picker > Editor) || (FileFinder > Picker > menu)",
@@ -650,23 +675,30 @@
       "cmd-j": "pane::SplitDown",
       "cmd-k": "pane::SplitUp",
       "cmd-h": "pane::SplitLeft",
-      "cmd-l": "pane::SplitRight"
-    }
+      "cmd-l": "pane::SplitRight",
+    },
+  },
+  {
+    "context": "RecentProjects || (RecentProjects > Picker > Editor)",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
   },
   {
     "context": "TabSwitcher",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-shift-tab": "menu::SelectPrevious",
-      "ctrl-backspace": "tab_switcher::CloseSelectedItem"
-    }
+      "ctrl-backspace": "tab_switcher::CloseSelectedItem",
+    },
   },
   {
     "context": "StashList || (StashList > Picker > Editor)",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-shift-backspace": "stash_picker::DropStashItem"
-    }
+      //
+    },
   },
   {
     "context": "Terminal",
@@ -677,13 +709,12 @@
       "cmd-v": "terminal::Paste",
       "ctrl-_": null, // emacs undo
       // Some nice conveniences
-      "cmd-backspace": ["terminal::SendText", "\u0015"], // ctrl-u: clear line
-      "cmd-right": ["terminal::SendText", "\u0005"],
-      "cmd-left": ["terminal::SendText", "\u0001"],
+      "cmd-backspace": ["terminal::SendKeystroke", "ctrl-u"], // clear line
+      "cmd-right": ["terminal::SendKeystroke", "ctrl-e"],
+      "cmd-left": ["terminal::SendKeystroke", "ctrl-a"],
       // Terminal.app compatibility
       "alt-b": ["terminal::SendText", "\u001bb"],
       "alt-f": ["terminal::SendText", "\u001bf"],
-      "ctrl-delete": ["terminal::SendText", "\u001bd"],
       "escape": ["terminal::SendKeystroke", "escape"],
       "enter": ["terminal::SendKeystroke", "enter"],
       "ctrl-c": ["terminal::SendKeystroke", "ctrl-c"],
@@ -692,85 +723,93 @@
       "cmd-down": "terminal::ScrollPageDown",
       // Using `ctrl-shift-space` in Zed requires disabling the macOS global shortcut.
       // System Preferences->Keyboard->Keyboard Shortcuts->Input Sources->Select the previous input source (uncheck)
-      "ctrl-shift-space": "terminal::ToggleViMode"
-    }
+      "ctrl-shift-space": "terminal::ToggleViMode",
+    },
   },
   {
-    "context": "RateCompletionModal",
+    "context": "AgentPanel > Terminal",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
-    "context": "RateCompletionModal > Editor",
+    "context": "RatePredictionsModal",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
+  },
+  {
+    "context": "RatePredictionsModal > Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
   },
   {
     "context": "ZedPredictModal",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "ConfigureContextServerModal > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
-  },{
+    },
+  },
+  {
     "context": "ContextServerToolsModal",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "OnboardingAiConfigurationModal",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Diagnostics",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-r": "diagnostics::ToggleDiagnosticsRefresh"
-    }
+      "ctrl-r": "diagnostics::ToggleDiagnosticsRefresh",
+    },
   },
   {
     "context": "DebugConsole > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "RunModal",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePreviousItem"
-    }
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+    },
   },
   {
     "context": "MarkdownPreview",
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "KeymapEditor",
     "use_key_equivalents": true,
     "bindings": {
       "cmd-f": "search::FocusSearch",
-      "cmd-alt-f": "keymap_editor::ToggleKeystrokeSearch"
-    }
+      "cmd-alt-f": "keymap_editor::ToggleKeystrokeSearch",
+    },
   },
   {
     "context": "KeystrokeInput",
@@ -778,38 +817,146 @@
     "bindings": {
       "enter": "keystroke_input::StartRecording",
       "escape escape escape": "keystroke_input::StopRecording",
-      "delete": "keystroke_input::ClearKeystrokes"
-    }
+      "delete": "keystroke_input::ClearKeystrokes",
+    },
   },
   {
     "context": "KeybindEditorModal",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-enter": "menu::Confirm"
-    }
+      "cmd-enter": "menu::Confirm",
+    },
   },
   {
     "context": "KeybindEditorModal > Editor",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "Onboarding",
     "use_key_equivalents": true,
     "bindings": {
       //
-    }
+    },
+  },
+  {
+    "context": "Welcome",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
   },
   {
     "context": "InvalidBuffer",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-shift-enter": "workspace::OpenWithSystem"
-    }
+      "ctrl-shift-enter": "workspace::OpenWithSystem",
+    },
   },
-
+  {
+    // Handled under a more specific context to avoid conflicts with the
+    // `OpenCurrentFile` keybind from the settings UI
+    "context": "!SettingsWindow",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "SettingsWindow",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-w": "workspace::CloseWindow",
+      "cmd-f": "search::FocusSearch",
+    },
+  },
+  {
+    "context": "StashDiff > Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "SettingsWindow > NavigationMenu",
+    "use_key_equivalents": true,
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "EditPredictionContext > Editor",
+    "bindings": {
+    },
+  },
+  {
+    "context": "GitBranchSelector || (GitBranchSelector > Picker > Editor)",
+    "use_key_equivalents": true,
+    "bindings": {
+    },
+  },
+  {
+    "context": "ImageViewer",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-+": "image_viewer::ZoomIn",
+      "cmd--": "image_viewer::ZoomOut",
+      "cmd-0": "image_viewer::ResetZoom",
+      "cmd-1": "image_viewer::ZoomToActualSize",
+      "cmd-shift-0": "image_viewer::FitToView",
+    },
+  },
+  {
+    "context": "RunModal",
+    "bindings": {
+     //
+    },
+  },
+  {
+    "context": "GitPicker",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "WorktreePicker || (WorktreePicker > Picker > Editor)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-backspace": "worktree_picker::DeleteWorktree",
+    },
+  },
+  {
+    "context": "NotebookEditor",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "NotebookEditor && notebook_mode == command",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "NotebookEditor > Editor",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "GitGraph",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "GitGraphSearchBar > Editor",
+    "bindings": {
+      //
+    },
+  },
   // vim start
   {
     "context": "VimControl && !menu",
@@ -853,17 +1000,11 @@
       "#": "vim::MoveToPrevious",
       "n": "vim::MoveToNextMatch",
       "shift-n": "vim::MoveToPreviousMatch",
-      "%": "vim::Matching",
+      "%": ["vim::Matching", { "match_quotes": true }],
       "f": ["vim::PushFindForward", { "before": false, "multiline": false }],
       "t": ["vim::PushFindForward", { "before": true, "multiline": false }],
-      "shift-f": [
-        "vim::PushFindBackward",
-        { "after": false, "multiline": false }
-      ],
-      "shift-t": [
-        "vim::PushFindBackward",
-        { "after": true, "multiline": false }
-      ],
+      "shift-f": ["vim::PushFindBackward", { "after": false, "multiline": false }],
+      "shift-t": ["vim::PushFindBackward", { "after": true, "multiline": false }],
       "m": "vim::PushMark",
       "'": ["vim::PushJump", { "line": true }],
       "`": ["vim::PushJump", { "line": false }],
@@ -939,8 +1080,8 @@
       "ctrl-w d": "editor::GoToDefinitionSplit",
       "ctrl-w shift-d": "editor::GoToTypeDefinitionSplit",
       "ctrl-w space": "editor::OpenExcerptsSplit",
-      ".": "vim::Repeat"
-    }
+      ".": "vim::Repeat",
+    },
   },
   {
     "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
@@ -971,8 +1112,8 @@
       "[ (": ["vim::UnmatchedBackward", { "char": "(" }],
       // tree-sitter related commands
       "[ x": "vim::SelectLargerSyntaxNode",
-      "] x": "vim::SelectSmallerSyntaxNode"
-    }
+      "] x": "vim::SelectSmallerSyntaxNode",
+    },
   },
   {
     "context": "vim_mode == normal",
@@ -1002,16 +1143,16 @@
       "[ d": "editor::GoToPreviousDiagnostic",
       "] c": "editor::GoToHunk",
       "[ c": "editor::GoToPreviousHunk",
-      "g c": "vim::PushToggleComments"
-    }
+      "g c": "vim::PushToggleComments",
+    },
   },
   {
     "context": "VimControl && VimCount",
     "bindings": {
       "0": ["vim::Number", 0],
       ":": "vim::CountCommand",
-      "%": "vim::GoToPercentage"
-    }
+      "%": "vim::GoToPercentage",
+    },
   },
   {
     "context": "vim_mode == visual",
@@ -1050,8 +1191,13 @@
       "g shift-r": ["vim::Paste", { "preserve_clipboard": true }],
       "g c": "vim::ToggleComments",
       "g ?": "vim::ConvertToRot47",
-      "\"": "vim::PushRegister"
-    }
+      "\"": "vim::PushRegister",
+    },
+  },
+  {
+    "context": "vim_mode == helix_select",
+    "bindings": {
+    },
   },
   {
     "context": "vim_mode == insert",
@@ -1062,7 +1208,7 @@
       "ctrl-x ctrl-a": "assistant::InlineAssist", // zed specific
       "ctrl-x ctrl-c": "editor::ShowEditPrediction", // zed specific
       "ctrl-x ctrl-z": "editor::Cancel",
-      "ctrl-w": "editor::DeleteToPreviousWordStart",
+      "ctrl-w": ["editor::DeleteToPreviousWordStart", { "ignore_newlines": false, "ignore_brackets": false }],
       "ctrl-u": "editor::DeleteToBeginningOfLine",
       "ctrl-t": "vim::Indent",
       "ctrl-d": "vim::Outdent",
@@ -1070,14 +1216,14 @@
       "ctrl-v": ["vim::PushLiteral", {}],
       "ctrl-r": "vim::PushRegister",
       "ctrl-o": "vim::TemporaryNormal",
-      "ctrl-s": "editor::ShowSignatureHelp"
-    }
+      "ctrl-s": "editor::ShowSignatureHelp",
+    },
   },
   {
     "context": "showing_completions",
     "bindings": {
       //
-    }
+    },
   },
   {
     "context": "(vim_mode == normal || vim_mode == helix_normal) && !menu",
@@ -1100,56 +1246,68 @@
       "r": "vim::PushReplace",
       "s": "vim::Substitute",
       "shift-s": "vim::SubstituteLine",
-      "\"": "vim::PushRegister"
-    }
+      "\"": "vim::PushRegister",
+    },
   },
   {
-    "context": "vim_mode == helix_normal && !menu",
+    "context": "VimControl && vim_mode == helix_normal && !menu && !BufferSearchBar",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "vim_mode == helix_select && !menu && !BufferSearchBar",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
     "bindings": {
       //helix is silly
-    }
+    },
   },
   {
     "context": "vim_mode == insert && !(showing_code_actions || showing_completions)",
     "bindings": {
-      "ctrl-space": "editor::ShowWordCompletions"
-    }
+      "ctrl-space": "editor::ShowWordCompletions",
+    },
   },
   {
     "context": "(vim_mode == insert || vim_mode == normal) && showing_signature_help && !showing_completions",
     "bindings": {
       "ctrl-p": "editor::SignatureHelpPrevious",
-      "ctrl-n": "editor::SignatureHelpNext"
-    }
+      "ctrl-n": "editor::SignatureHelpNext",
+    },
   },
   {
     "context": "vim_mode == replace",
     "bindings": {
       "ctrl-c": "vim::NormalBefore",
       "ctrl-k": ["vim::PushDigraph", {}],
-      "ctrl-v": ["vim::PushLiteral", {}]
-    }
+      "ctrl-v": ["vim::PushLiteral", {}],
+    },
   },
   {
     "context": "vim_mode == waiting",
     "bindings": {
       "ctrl-c": "vim::ClearOperators",
       "ctrl-k": ["vim::PushDigraph", {}],
-      "ctrl-v": ["vim::PushLiteral", {}]
-    }
+      "ctrl-v": ["vim::PushLiteral", {}],
+    },
   },
   {
     "context": "Editor && vim_mode == waiting && (vim_operator == ys || vim_operator == cs)",
     "bindings": {
-      "ctrl-c": "vim::SwitchToNormalMode"
-    }
+      "ctrl-c": "vim::SwitchToNormalMode",
+    },
   },
   {
     "context": "vim_mode == operator",
     "bindings": {
       "ctrl-c": "vim::ClearOperators",
-      "g c": "vim::Comment"
-    }
+      "g c": "vim::Comment",
+    },
   },
   {
     "context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == helix_next || vim_operator == helix_previous",
@@ -1168,49 +1326,49 @@
       // "q": "vim::AnyQuotes",
       "q": "vim::MiniQuotes",
       "|": "vim::VerticalBars",
-      "(": "vim::Parentheses",
+      "(": ["vim::Parentheses", { "opening": true }],
       ")": "vim::Parentheses",
       // "b": "vim::AnyBrackets",
       "b": "vim::MiniBrackets",
-      "[": "vim::SquareBrackets",
+      "[": ["vim::SquareBrackets", { "opening": true }],
       "]": "vim::SquareBrackets",
-      "{": "vim::CurlyBrackets",
+      "{": ["vim::CurlyBrackets", { "opening": true }],
       "}": "vim::CurlyBrackets",
-      "<": "vim::AngleBrackets",
+      "<": ["vim::AngleBrackets", { "opening": true }],
       ">": "vim::AngleBrackets",
       "a": "vim::Argument",
       "i": "vim::IndentObj",
       "shift-i": ["vim::IndentObj", { "include_below": true }],
       "f": "vim::Method",
       "c": "vim::Class",
-      "e": "vim::EntireFile"
-    }
+      "e": "vim::EntireFile",
+    },
   },
   {
     "context": "vim_operator == helix_m",
     "bindings": {
       //helix is silly
-    }
+    },
   },
   {
     "context": "vim_operator == helix_next",
     "bindings": {
       //helix is silly
-    }
+    },
   },
   {
     "context": "vim_operator == helix_previous",
     "bindings": {
       //helix is silly
-    }
+    },
   },
   {
     "context": "vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
       "x": "vim::Exchange",
-      "s": ["vim::PushChangeSurrounds", {}]
-    }
+      "s": ["vim::PushChangeSurrounds", {}],
+    },
   },
   {
     "context": "vim_operator == d",
@@ -1221,96 +1379,102 @@
       "shift-o": "git::ToggleStaged",
       "p": "git::Restore", // "d p"
       "u": "git::StageAndNext", // "d u"
-      "shift-u": "git::UnstageAndNext" // "d shift-u"
-    }
+      "shift-u": "git::UnstageAndNext", // "d shift-u"
+    },
   },
   {
     "context": "vim_operator == gu",
     "bindings": {
-      "u": "vim::CurrentLine"
-    }
+      "u": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == gU",
     "bindings": {
-      "shift-u": "vim::CurrentLine"
-    }
+      "shift-u": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == g~",
     "bindings": {
-      "~": "vim::CurrentLine"
-    }
+      "~": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == g?",
     "bindings": {
-      "?": "vim::CurrentLine"
-    }
+      "?": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == gq",
     "bindings": {
       "q": "vim::CurrentLine",
-      "w": "vim::CurrentLine"
-    }
+      "w": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == y",
     "bindings": {
       "y": "vim::CurrentLine",
       "v": "vim::PushForcedMotion",
-      "s": "vim::PushAddSurrounds"
-    }
+      "s": ["vim::PushAddSurrounds", {}],
+    },
   },
   {
     "context": "vim_operator == ys",
     "bindings": {
-      "s": "vim::CurrentLine"
-    }
+      "s": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == >",
     "bindings": {
-      ">": "vim::CurrentLine"
-    }
+      ">": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == <",
     "bindings": {
-      "<": "vim::CurrentLine"
-    }
+      "<": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == eq",
     "bindings": {
-      "=": "vim::CurrentLine"
-    }
+      "=": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == sh",
     "bindings": {
-      "!": "vim::CurrentLine"
-    }
+      "!": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == gc",
     "bindings": {
-      "c": "vim::CurrentLine"
-    }
+      "c": "vim::CurrentLine",
+    },
+  },
+  {
+    "context": "vim_operator == gb",
+    "bindings": {
+      "c": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == gR",
     "bindings": {
-      "shift-r": "vim::CurrentLine"
-    }
+      "shift-r": "vim::CurrentLine",
+    },
   },
   {
     "context": "vim_operator == cx",
     "bindings": {
       "x": "vim::CurrentLine",
-      "c": "vim::ClearExchange"
-    }
+      "c": "vim::ClearExchange",
+    },
   },
   {
     "context": "vim_mode == literal",
@@ -1351,18 +1515,18 @@
       "enter": ["vim::Literal", ["enter", "\u000D"]],
       "tab": ["vim::Literal", ["tab", "\u0009"]],
       // zed extensions:
-      "backspace": ["vim::Literal", ["backspace", "\u0008"]]
-    }
+      "backspace": ["vim::Literal", ["backspace", "\u0008"]],
+    },
   },
   {
     "context": "BufferSearchBar && !in_replace",
     "bindings": {
       "enter": "vim::SearchSubmit",
-      "ctrl-c": "buffer_search::Dismiss"
-    }
+      "ctrl-c": "buffer_search::Dismiss",
+    },
   },
   {
-    "context": "VimControl || !Editor && !Terminal",
+    "context": "VimControl && !menu || !Editor && !Terminal",
     "bindings": {
       // window related commands (ctrl-w X)
       "ctrl-w": null,
@@ -1378,15 +1542,15 @@
       "ctrl-w c": "pane::CloseActiveItem",
       "ctrl-w a": "pane::CloseAllItems",
       "ctrl-w o": "workspace::CloseInactiveTabsAndPanes",
-      "ctrl-w n": "workspace::NewFileSplitHorizontal"
-    }
+      "ctrl-w n": "workspace::NewFileSplitHorizontal",
+    },
   },
   {
     "context": "!Editor && !Terminal",
     "bindings": {
       ":": "command_palette::Toggle",
-      "g /": "pane::DeploySearch"
-    }
+      "g /": "pane::DeploySearch",
+    },
   },
   {
     // netrw compatibility
@@ -1399,10 +1563,10 @@
       "/": "project_panel::NewSearchInDirectory",
       "d": "project_panel::NewDirectory",
       "enter": "project_panel::OpenPermanent",
-      "escape": "project_panel::ToggleFocus",
+      "escape": "vim::ToggleProjectPanelFocus",
       "h": "project_panel::CollapseSelectedEntry",
-      "j": "menu::SelectNext",
-      "k": "menu::SelectPrevious",
+      "j": "vim::MenuSelectNext",
+      "k": "vim::MenuSelectPrevious",
       "l": "project_panel::ExpandSelectedEntry",
       "shift-d": "project_panel::Delete",
       "shift-r": "project_panel::Rename",
@@ -1416,25 +1580,49 @@
       "{": "project_panel::SelectPrevDirectory",
       "shift-g": "menu::SelectLast",
       "g g": "menu::SelectFirst",
-      "-": "project_panel::SelectParent"
-    }
+      "-": "project_panel::SelectParent",
+    },
   },
   {
     "context": "OutlinePanel && not_editing",
     "bindings": {
-      "j": "menu::SelectNext",
-      "k": "menu::SelectPrevious",
+      "j": "vim::MenuSelectNext",
+      "k": "vim::MenuSelectPrevious",
       "shift-g": "menu::SelectLast",
-      "g g": "menu::SelectFirst"
+      "g g": "menu::SelectFirst",
+    },
+  },
+  {
+    "context": "OutlinePanel && editing",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "GitGraph",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "GitGraphSearchBar > Editor",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "GitGraph && !GitGraphSearchBar",
+    "bindings": {
+      //
     }
   },
   {
-    "context": "GitPanel && ChangesList",
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
     "use_key_equivalents": true,
     "bindings": {
       "k": "menu::SelectPrevious",
-      "j": "menu::SelectNext"
-    }
+      "j": "menu::SelectNext",
+    },
   },
   {
     "context": "Editor && mode == auto_height && VimControl",
@@ -1445,8 +1633,8 @@
       "#": null,
       "*": null,
       "n": null,
-      "shift-n": null
-    }
+      "shift-n": null,
+    },
   },
   {
     "context": "Picker > Editor",
@@ -1454,26 +1642,75 @@
       "left": "editor::MoveLeft",
       "right": "editor::MoveRight",
       "ctrl-u": "editor::DeleteToBeginningOfLine",
-      "ctrl-w": "editor::DeleteToPreviousWordStart"
-    }
+      "ctrl-w": "editor::DeleteToPreviousWordStart",
+    },
   },
   {
     "context": "GitCommit > Editor && VimControl && vim_mode == normal",
     "bindings": {
       //
-    }
+    },
   },
   {
-    "context": "Editor && edit_prediction",
+    "context": "Editor && edit_prediction && edit_prediction_mode == eager && !showing_completions",
     "bindings": {
       // This is identical to the binding in the base keymap, but the vim bindings above to
       // "vim::Tab" shadow it, so it needs to be bound again.
-    }
+    },
   },
   {
     "context": "MessageEditor > Editor && VimControl",
     "bindings": {
       //
-    }
-  }
+    },
+  },
+  {
+    "context": "SettingsWindow > NavigationMenu && !search",
+    "bindings": {
+      "l": "settings_editor::ExpandNavEntry",
+      "h": "settings_editor::CollapseNavEntry",
+      "k": "settings_editor::FocusPreviousNavEntry",
+      "j": "settings_editor::FocusNextNavEntry",
+      "g g": "settings_editor::FocusFirstNavEntry",
+      "shift-g": "settings_editor::FocusLastNavEntry",
+    },
+  },
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+    },
+  },
+  {
+    "context": "FileHistoryView",
+    "bindings": {
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "g g": "menu::SelectFirst",
+      "shift-g": "menu::SelectLast",
+    },
+  },
+  {
+    "context": "NotebookEditor > Editor && VimControl && vim_mode == normal",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "NotebookEditor && notebook_mode == command",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "ThreadsSidebar && !Editor",
+    "bindings": {
+      //
+    },
+  },
+  {
+    "context": "ThreadsSidebar > Editor && VimControl && vim_mode == normal",
+    "bindings": {
+      //
+    },
+  },
 ]

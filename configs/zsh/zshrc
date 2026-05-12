@@ -10,31 +10,28 @@ export _ZO_DATA_DIR=$HOME/.local/state/zoxide
 export _ZO_RESOLVE_SYMLINKS=1
 export EDITOR=nvim
 export VISUAL=zed
-export CMAKE_GENERATOR="Ninja Multi-Config"
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export GOPATH=$HOME/.local/share/go
+export CMAKE_GENERATOR="Ninja Multi-Config"
+export CMAKE_BUILD_PARALLEL_LEVEL=12
+export CTEST_PARALLEL_LEVEL=12
 export CARGO_HOME=$HOME/.local/share/rust/cargo
 export RUSTUP_HOME=$HOME/.local/share/rust/rustup
 export GHCUP_USE_XDG_DIRS=1
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig"
+export CC=$(brew --prefix llvm)/bin/clang
+export CXX=$(brew --prefix llvm)/bin/clang++
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --exclude .DS_Store"
 export FZF_DEFAULT_OPTS="\
 --color=fg:#908caa,fg+:#d0d0d0,bg:-1,bg+:#262626,hl:#ebbcba,hl+:#5fd7ff,info:#9ccfd8,marker:#eb6f92,prompt:#908caa,spinner:#f6c177,pointer:#c4a7e7,header:#31748f,gutter:-1,border:#403d52,label:#aeaeae,query:#d9d9d9 \
---height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '; ' --marker '*' --pointer '>' --separator '─' --scrollbar '│'\
+--height 25% --info right --layout reverse --border rounded --border-label '' --preview-window border-rounded --prompt '; ' --marker '*' --pointer '>' --separator '─' --scrollbar '│' --gutter ' '\
 "
 
-case $(uname) in
-    Darwin)
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    export PKG_CONFIG_PATH='/opt/homebrew/lib/pkgconfig'
-    export CC=$(brew --prefix llvm)/bin/clang
-    export CXX=$(brew --prefix llvm)/bin/clang++
-    export CMAKE_BUILD_PARALLEL_LEVEL=12
-    export CTEST_PARALLEL_LEVEL=12
-    export HOMEBREW_NO_ENV_HINTS=1
-    export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
-
-    export PATH="/opt/homebrew/bin:\
+export PATH="/opt/homebrew/bin:\
 /opt/homebrew/sbin:\
 $(brew --prefix llvm)/bin:\
 /usr/local/bin:\
@@ -52,27 +49,13 @@ $(brew --prefix rustup)/bin:\
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:\
 /Library/Apple/usr/bin"
 
-    . $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    . $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    . $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+. $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+. $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-    alias mls="ls -AFGhot"
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    ;;
-    Linux)
-    if uwsm check may-start > /dev/null 2>&1; then
-        exec uwsm start hyprland
-    fi
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-    . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-    alias zed="zeditor"
-    alias mls="ls -AFhot --color=always"
-    ;;
-esac
+alias mls="ls -AFGhot"
+alias obsidian="/Applications/Obsidian.app/Contents/MacOS/Obsidian"
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
 bindkey -v
 bindkey '^[[A' history-substring-search-up
