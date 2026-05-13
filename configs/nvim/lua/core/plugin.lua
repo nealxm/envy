@@ -1,16 +1,26 @@
----@class LazyPluginSpec
-local spec = {
-    'folke/snacks.nvim',
-    lazy = false,
-    priority = 1000,
+vim.pack.add({
+    {
+        src = 'https://github.com/rose-pine/neovim',
+        name = 'rose-pine',
+    },
+    'https://github.com/folke/snacks.nvim',
+})
 
-    ---@class snacks.Config
-    opts = {
+require('rose-pine').setup({
+    variant = 'main',
+    dark_variant = 'main',
+    styles = { transparency = true },
+    highlight_groups = {
+        StatusLine = { bg = 'surface' },
+        StatusLineNC = { bg = 'surface' },
+        Pmenu = { bg = 'base' },
+    },
+})
 
-        --- @class snacks.dashboard.Config
-        dashboard = {
-            preset = {
-                header = [[
+require('snacks').setup({
+    dashboard = {
+        preset = {
+            header = [[
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣽⣍⣉⠙⠒⠤⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡉⠙⠛⠷⢦⣤⣄⣉⠙⠒⠢⢤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -40,65 +50,50 @@ local spec = {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠶⣶⣤⣀⣈⠉⠑⠲⠒⢋⣩⠦⠖⣇⣉⠓⠤⢄⣈⣩⠤⠔⠒⣉⣠⣤⣶⠿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⣶⣤⣄⣀⠁⠋⠋⠤⠕⠒⣉⣠⣦⣶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠷⠶⠶⠾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-                keys = {
-                    { key = 'f', desc = 'find file',      action = '<cmd>lua Snacks.picker.files()<cr>' },
-                    { key = 'e', desc = 'file explorer',  action = '<cmd>Explore<cr>' },
-                    { key = 'd', desc = 'git diff',       action = '<cmd>lua Snacks.picker.git_diff()<cr>' },
-                    { key = 'h', desc = 'search help',    action = '<cmd>lua Snacks.picker.help()<cr>' },
-                    { key = 'l', desc = 'lazy dashboard', action = '<cmd>Lazy<cr>' },
-                    { key = 'q', desc = 'quit',           action = '<cmd>qa<cr>' },
-                }
+            keys = {
+                { key = 'f', desc = 'find file',      action = '<cmd>lua Snacks.picker.files()<cr>' },
+                { key = 'e', desc = 'file explorer',  action = '<cmd>Explore<cr>' },
+                { key = 'd', desc = 'git diff',       action = '<cmd>lua Snacks.picker.git_diff()<cr>' },
+                { key = 'h', desc = 'search help',    action = '<cmd>lua Snacks.picker.help()<cr>' },
+                { key = 'q', desc = 'quit',           action = '<cmd>qa<cr>' },
             },
-            sections = {
-                { section = 'header' },
-                { section = 'keys' },
-                { section = 'startup' }
-            }
         },
-
-        ---@class snacks.git.Config
-        git = {
-            width = 0.5,
-            height = 0.5,
-            title = 'git blame',
+        sections = {
+            { section = 'header' },
+            { section = 'keys' },
         },
-
-        ---@class snacks.indent.Config
-        indent = {
-            animate = { enabled = false }
+    },
+    git = {
+        width = 0.5,
+        height = 0.5,
+        title = 'git blame',
+    },
+    indent = {
+        animate = { enabled = false },
+    },
+    profiler = {
+        --todo: would be cool to use this when vim.pack is ready and i no longer need lazy
+    },
+    quickfile = { enabled = true },
+    picker = {
+        prompt = '; ',
+        matcher = {
+            sort_empty = true,
+            frecency = true,
         },
-
-        ---@class snacks.profiler.Config
-        profiler = {
-            --todo: would be cool to use this when vim.pack is ready and i no longer need lazy
+        formatters = {
+            severity = { icons = false },
         },
-
-        ---@class snacks.quickfile.Config
-        quickfile = { enabled = true },
-
-        ---@class snacks.picker.Config
-        picker = {
-            prompt = '; ',
-            matcher = {
-                sort_empty = true,
-                frecency = true
-            },
-            formatters = {
-                severity = { icons = false }
-            },
-            icons = {
-                files = { enabled = false },
-                keymaps = {},
-                tree = {},
-                undo = {},
-                ui = {},
-                diagnostics = {},
-                git = { enabled = false },
-                lsp = { enabled = false },
-                kinds = { enabled = false }
-            }
-        }
-    }
-}
-
-return spec
+        icons = {
+            files = { enabled = false },
+            keymaps = {},
+            tree = {},
+            undo = {},
+            ui = {},
+            diagnostics = {},
+            git = { enabled = false },
+            lsp = { enabled = false },
+            kinds = { enabled = false },
+        },
+    },
+})
