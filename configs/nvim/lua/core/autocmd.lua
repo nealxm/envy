@@ -3,7 +3,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'highlight on yank',
     callback = function()
         vim.hl.on_yank()
-    end
+    end,
 })
 
 -- ghostty-org/ghostty
@@ -12,14 +12,14 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     desc = 'auto set git config filetype',
     callback = function()
         vim.bo.filetype = 'gitconfig'
-    end
+    end,
 })
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     pattern = 'cmakelists.txt',
     desc = 'auto set cmake filetype',
     callback = function()
         vim.bo.filetype = 'cmake'
-    end
+    end,
 })
 
 -- gpanders.com/blog
@@ -30,5 +30,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
         if client and client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
-    end
+    end,
+})
+
+-- radleylewis/nvim-lite
+-- nvim-lua/kickstart.nvim
+vim.api.nvim_create_autocmd('FileType', {
+    desc = 'auto start treesitter',
+    callback = function(args)
+        if vim.list_contains(require('nvim-treesitter').get_installed(), vim.treesitter.language.get_lang(args.match)) then
+            vim.treesitter.start(args.buf)
+        end
+    end,
 })

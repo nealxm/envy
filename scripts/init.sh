@@ -2,9 +2,9 @@
 set -e
 
 source=$HOME/dev/envy/configs
-target=$HOME/.config
+target=$XDG_CONFIG_HOME
 
-if [[ "$source" == "$HOME/dev/envy/configs" || "$target" == "$HOME/.config" ]]; then
+if [[ "$source" == "$HOME/dev/envy/configs" || "$target" == "$XDG_CONFIG_HOME" ]]; then
     echo "source and target dirs must be configured"
     exit 1
 fi

@@ -2,7 +2,7 @@
 set -e
 
 ghostty_nvim=/Applications/Ghostty.app/Contents/Resources/nvim/site
-nvim_config=$HOME/.config/nvim/after
+nvim_config=$XDG_CONFIG_HOME/nvim/after
 
 mkdir -p $nvim_config/{ftdetect,syntax,ftplugin,compiler}
 

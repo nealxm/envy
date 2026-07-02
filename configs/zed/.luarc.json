@@ -3,7 +3,7 @@
   "workspace": {
     "library": [
       "$HOMEBREW_PREFIX/opt/neovim/share/nvim/runtime",
-      "$HOME/.local/share/nvim/lazy"
+      "$HOME/.local/share/nvim/site/pack/core/opt"
     ]
   },
   "runtime": {

@@ -1,6 +1,40 @@
 {
   "diff_view_style": "unified",
-  "cli_default_open_behavior": "existing_window",
+  "autosave": "on_focus_change",
+  "preferred_line_length": 128,
+  "allow_rewrap": "in_selections",
+  "document_symbols": "on",
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.8
+  },
+  "zoomed_padding": false,
+  "status_bar": {
+    "show_active_file": false,
+    "line_endings_button": false
+  },
+  "close_on_file_delete": true,
+  "prettier": {
+    "allowed": true
+  },
+  "document_folding_ranges": "on",
+  "semantic_tokens": "combined",
+  "middle_click_paste": false,
+  "code_lens": "menu",
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
+  "autoscroll_on_clicks": true,
+  "sticky_scroll": {
+    "enabled": true
+  },
+  "vertical_scroll_margin": 10.0,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "which_key": {
+    "enabled": true
+  },
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "buffer_font_size": 13.0,
+  "ui_font_size": 13.0,
+  "cli_default_open_behavior": "new_window",
   "theme": {
     "light": "Rosé Pine Dawn",
     "dark": "Rosé Pine"
@@ -8,26 +42,25 @@
   "base_keymap": "None",
   "buffer_font_family": "JetBrains Mono",
   "buffer_font_fallbacks": [".ZedMono"],
-  "buffer_font_size": 13,
-  "ui_font_size": 13,
 
   "bottom_dock_layout": "left_aligned",
-  "pane_split_direction_horizontal": "down",
-  "pane_split_direction_vertical": "right",
   "vim_mode": true,
-  "hover_popover_enabled": false,
   "restore_on_startup": "empty_tab",
   "lsp_highlight_debounce": 0,
   "drag_and_drop_selection": {
     "enabled": false
   },
-  "wrap_guides": [80, 100, 120],
+  "wrap_guides": [80, 128],
   "always_treat_brackets_as_autoclosed": false,
 
   "toolbar": {
+    "code_actions": true,
+    "agent_review": true,
     "quick_actions": false
   },
   "title_bar": {
+    "show_menus": false,
+    "show_project_items": true,
     "show_branch_status_icon": true
   },
   "scrollbar": {
@@ -38,25 +71,35 @@
     "thumb": "hover",
     "thumb_border": "none"
   },
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "vertical_scroll_margin": 10,
   "horizontal_scroll_margin": 10,
   "relative_line_numbers": "enabled",
   "search_wrap": false,
   "search": {
+    "center_on_match": true,
     "button": false,
     "regex" :true
   },
-  "use_smartcase_search": true,
   "inlay_hints": {
+    "show_value_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_type_hints": true,
+    "enabled": true,
     "show_background": true,
     "edit_debounce_ms": 0,
     "scroll_debounce_ms": 0
   },
   "project_panel": {
+    "drag_and_drop": true,
+    "hide_root": false,
+    "git_status_indicator": true,
+    "diagnostic_badges": true,
+    "scrollbar": {
+      "horizontal_scroll": false
+    },
     "dock": "left",
     "button": false,
-    "starts_open": false
+    "starts_open": true
   },
   "outline_panel": {
     "dock": "left",
@@ -67,6 +110,13 @@
     "button": false
   },
   "git_panel": {
+    "group_by": "status",
+    "scrollbar": {
+      "show": "auto"
+    },
+    "show_count_badge": true,
+    "sort_by_path": true,
+    "tree_view": true,
     "dock": "left",
     "button": false
   },
@@ -74,7 +124,8 @@
     "auto_replace_emoji_shortcode": false
   },
   "agent": {
-    "dock": "right",
+    "show_turn_stats": true,
+    "dock": "left",
     "button": false,
     "play_sound_when_agent_done": "always",
     "use_modifier_to_send": true
@@ -83,7 +134,11 @@
     "show": false
   },
   "preview_tabs": {
-    "enabled": false
+    "enable_keep_preview_on_code_navigation": true,
+    "enable_preview_multibuffer_from_code_navigation": true,
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_project_panel": true,
+    "enabled": true
   },
   "file_finder": {
     "modal_max_width": "large"
@@ -112,7 +167,8 @@
     "build/",
     "Build/",
     "dist-newstyle/",
-    "bin/"
+    "bin/",
+    "node_modules/"
   ],
   "git": {
     "inline_blame": {
@@ -126,12 +182,15 @@
     "hour_format": "hour24"
   },
   "terminal": {
+    "scrollbar": {
+      "show": "auto"
+    },
+    "max_scroll_history_lines": 10000,
+    "keep_selection_on_copy": false,
+    "show_count_badge": true,
     "font_family": "JetBrains Mono",
     "blinking": "on",
     "button": false,
-    "toolbar": {
-      "breadcrumbs": false
-    }
   },
 
   "file_types": {
@@ -142,6 +201,61 @@
   "auto_install_extensions": {
     "html": false,
     "rose-pine-theme": true
+  },
+  "languages": {
+    "TOML": {
+      "document_symbols": "off"
+    },
+    "C": {
+      "inlay_hints": {
+        "show_parameter_hints": false
+      },
+      "format_on_save": "on"
+    },
+    "Haskell": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "Zig": {
+      "inlay_hints": {
+        "show_parameter_hints": false,
+        "show_type_hints": false
+      },
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "Go": {
+      "always_treat_brackets_as_autoclosed": false,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "show_parameter_hints": false,
+        "show_type_hints": false
+      },
+      "prettier": {
+        "allowed": false
+      },
+    },
+    "JavaScript": {
+      "inlay_hints": {
+        "show_parameter_hints": false,
+        "show_type_hints": false
+      }
+    },
+    "TypeScript": {
+      "inlay_hints": {
+        "show_parameter_hints": false,
+        "show_type_hints": false,
+      }
+    },
+    "Markdown": {
+      "remove_trailing_whitespace_on_save": true,
+      "soft_wrap": "editor_width",
+      "document_symbols": "off",
+      "tab_size": 2
+    }
   },
   "lsp": {
     "texlab": {

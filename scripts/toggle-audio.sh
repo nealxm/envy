@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -e
 
-headphone="Scarlett 2i2 USB"
+headphone="External Headphones"
 speaker="MacBook Pro Speakers"
 current=$(/opt/homebrew/bin/switchaudiosource -c -t output)
 

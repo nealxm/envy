@@ -1,20 +1,75 @@
-start-at-login = true
+config-version = 2
+
 after-startup-command = ['exec-and-forget borders']
+start-at-login = true
+auto-reload-config = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
-key-mapping.preset = 'qwerty'
 on-focus-changed = 'move-mouse window-lazy-center'
+key-mapping.preset = 'qwerty'
 automatically-unhide-macos-hidden-apps = true
+persistent-workspaces = ['1','2','3','4','5','6','7','8']
 
-accordion-padding = 15
-gaps.inner.horizontal = 10
-gaps.inner.vertical = 10
-gaps.outer.left = 10
-gaps.outer.bottom = 10
-gaps.outer.top = 10
-gaps.outer.right = 10
+accordion-padding = 16
+gaps.inner.horizontal = 8
+gaps.inner.vertical = 8
+gaps.outer.left = 8
+gaps.outer.bottom = 8
+gaps.outer.top = 8
+gaps.outer.right = 8
+
+workspace-to-monitor-force-assignment.3 = 'secondary'
+workspace-to-monitor-force-assignment.7 = 'secondary'
+
+on-window-detected = [
+    {
+        if = 'test %{app-name} ~= mpv || test %{app-name} ~= java || test %{app-bundle-id} = com.apple.QuickTimePlayerX',
+        run = 'layout floating',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = com.hnc.Discord || test %{app-bundle-id} = com.valvesoftware.steam',
+        run = 'move-node-to-workspace 1',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = md.obsidian',
+        run = 'move-node-to-workspace 2',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = com.apple.mail || test %{app-bundle-id} = com.apple.iCal || test %{app-bundle-id} = com.apple.Maps',
+        run = 'move-node-to-workspace 3',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = com.apple.finder || test %{app-bundle-id} = com.apple.Photos',
+        run = 'move-node-to-workspace 4',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = app.zen-browser.zen || test %{app-bundle-id} = com.apple.Safari || test %{app-bundle-id} = com.vivaldi.Vivaldi',
+        run = 'move-node-to-workspace 5',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = com.mitchellh.ghostty || test %{app-bundle-id} = dev.zed.Zed',
+        run = 'move-node-to-workspace 6',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = com.apple.MobileSMS || test %{app-bundle-id} = com.apple.FaceTime || test %{app-bundle-id} = com.apple.Music || test %{app-bundle-id} = com.apple.podcasts',
+        run = 'move-node-to-workspace 7',
+        check-further-callbacks = true,
+    },
+    {
+        if = 'test %{app-bundle-id} = com.mgsdevelopment.forscore || test %{app-bundle-id} = milesvinson.Andante || test %{app-bundle-id} = com.apple.logic10',
+        run = 'move-node-to-workspace 8',
+        check-further-callbacks = true,
+    },
+]
 
 [mode.main.binding]
 alt-slash = 'layout h_tiles v_tiles'
@@ -30,9 +85,6 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 alt-shift-f = 'fullscreen'
-
-alt-shift-leftSquareBracket = 'resize smart -20'
-alt-shift-rightSquareBracket = 'resize smart +20'
 
 alt-w = 'workspace 1'
 alt-e = 'workspace 2'
@@ -51,103 +103,3 @@ alt-shift-y = 'move-node-to-workspace 5'
 alt-shift-u = 'move-node-to-workspace 6'
 alt-shift-i = 'move-node-to-workspace 7'
 alt-shift-o = 'move-node-to-workspace 8'
-
-alt-shift-semicolon = 'mode service'
-[mode.service.binding]
-esc = ['reload-config', 'mode main']
-f = ['layout floating tiling', 'mode main']
-
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
-
-alt-shift-n = ['move-workspace-to-monitor next', 'mode main']
-alt-shift-p = ['move-workspace-to-monitor prev', 'mode main']
-
-l = ['exec-and-forget open "/Applications/Tuna.app"', 'mode main']
-
-[workspace-to-monitor-force-assignment]
-    3 = 'secondary'
-    6 = 'main'
-    7 = 'secondary'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'mpv'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.QuickTimePlayerX'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.FaceTime'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.bloombuilt.dayone-mac'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.reminders'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.mgsdevelopment.forscore'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Photos'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.vivaldi.Vivaldi'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 6'
-
-[[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
-run = 'move-node-to-workspace 6'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.podcasts'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.logic10'
-run = 'move-node-to-workspace 8'
