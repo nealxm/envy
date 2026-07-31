@@ -1,4 +1,4 @@
-schemaVersion = 1
+schemaVersion = 4
 
 [catalogConfiguration]
 customFolders = []
@@ -10,324 +10,186 @@ scriptsDirectories = []
     depthRawValue = 0
 
 [catalogs]
+searchPriorities = []
 sortOrders = []
 
     [[catalogs.globalScopes]]
-    catalogIdentifier = 'Tuna.Internal.ColorPickerHistoryCatalog'
-    mode = 'none'
-    selectedItemKeys = []
+    catalogIdentifier = 'tuna.effects'
+
+        [catalogs.globalScopes.scope]
+        kind = 'none'
 
     [[catalogs.globalScopes]]
-    catalogIdentifier = 'Tuna.Internal.DictationHistoryCatalog'
-    mode = 'none'
-    selectedItemKeys = []
+    catalogIdentifier = 'tuna.emoji'
 
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'Tuna.Internal.ShelfCatalog'
-    mode = 'none'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaAutomation.QuickActionsCatalog'
-    mode = 'some'
-    selectedItemKeys = [ 'Encode Selected Audio Files', 'Encode Selected Video Files', "Perform Quick Action\u2026", 'Show Map' ]
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaBrew.BrewCatalog'
-    mode = 'none'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaCore.CommonActionsCatalog'
-    mode = 'some'
-    selectedItemKeys = [
-        'Activate',
-        'Add to Catalog',
-        'Add to Custom Items',
-        "Add\u2026",
-        "Always Open Type With\u2026",
-        "Assign Alias\u2026",
-        'Browse',
-        'Browse Recents',
-        'Browse Shelf',
-        "Check for Updates\u2026",
-        'Clear',
-        'Compress',
-        'Compress to Shelf',
-        'Convert to Display-P3',
-        'Convert to HSL(A)',
-        'Convert to Hex',
-        'Convert to OKLab',
-        'Convert to RGB(A)',
-        'Copy Answer',
-        'Copy Formatted Answer',
-        'Copy Paths to Clipboard',
-        'Copy Question and Answer',
-        "Copy To\u2026",
-        'Copy to Clipboard',
-        'Define',
-        'Do Not Open at Login',
-        'Eject',
-        'Extract Tokens',
-        'Forget',
-        'Get Absolute (POSIX) Path',
-        'Get File URL',
-        'Get Info',
-        'Get Path',
-        'Hide',
-        'Kill',
-        'Load More Results',
-        "Make Alias In\u2026",
-        "Make Link In\u2026",
-        "Modify Color\u2026",
-        "Move To\u2026",
-        'Move to Trash',
-        "New Folder\u2026",
-        "New Text File\u2026",
-        'Open',
-        'Open E-mail URL',
-        "Open File\u2026",
-        'Open Printer Queue',
-        'Open Settings',
-        'Open URL',
-        "Open URL With\u2026",
-        'Open URL in Background',
-        "Open With\u2026",
-        'Open at Login',
-        'Paste',
-        'Paste as Plain Text',
-        'Pick',
-        "Process Text with AppleScript\u2026",
-        'Quit',
-        'Remove Custom Item',
-        "Rename\u2026",
-        'Resolve',
-        'Resolve Result',
-        'Restore Expression',
-        'Reveal',
-        'Run',
-        "Run AppleScript with File\u2026",
-        'Run Text as AppleScript',
-        'Run Text as Shell Command',
-        'Run on Shelf',
-        "Run with Input\u2026",
-        "Save to File in\u2026",
-        "Send Feedback\u2026",
-        'Send Global Keys',
-        'Send Keys',
-        "Send Keys To\u2026",
-        "Send Keys\u2026",
-        "Send to Script\u2026",
-        'Share',
-        'Show Onboarding',
-        'Show in Large Type',
-        'Show in Silly Type',
-        'Speak Text (Say)',
-        'Spotlight Search',
-        "Spotlight Search For\u2026",
-        "Spotlight Search In\u2026",
-        'Stage',
-        'Swap Units',
-        'Switch',
-        'Toggle Application',
-        'Toggle Shelf',
-        'Type Text',
-        'Uninstall'
-    ]
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaCore.FinderFavoritesCatalog'
-    mode = 'all'
-    selectedItemKeys = [ 'Applications', 'Desktop', 'Documents', 'Downloads', 'Library', 'dev', 'vault' ]
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaCore.UserFoldersCatalog'
-    mode = 'all'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaCore.VolumesCatalog'
-    mode = 'none'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaEmoji.EmojiCatalog'
-    mode = 'none'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'TunaPrompts.AIPromptCatalog'
-    mode = 'none'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'combo.actions'
-    mode = 'none'
-    selectedItemKeys = []
-
-    [[catalogs.globalScopes]]
-    catalogIdentifier = 'combo.groups'
-    mode = 'none'
-    selectedItemKeys = []
+        [catalogs.globalScopes.scope]
+        kind = 'none'
 
 [[comboMode.bindings]]
 key = 'b'
-url = 'tuna://run/TunaCore.ApplicationsCatalog.Zen/TunaCore.CommonActionsCatalog.Open'
+url = 'tuna://run?subject=tuna.applications//Applications/Zen.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 'o'
-url = 'tuna://run/TunaCore.ApplicationsCatalog.Obsidian/TunaCore.CommonActionsCatalog.Open'
+url = 'tuna://run?subject=tuna.applications//Applications/Obsidian.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 't'
-url = 'tuna://run/TunaCore.ApplicationsCatalog.Ghostty/TunaCore.CommonActionsCatalog.Open'
+url = 'tuna://run?subject=tuna.applications//Applications/Ghostty.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 'e'
-url = 'tuna://run/TunaCore.ApplicationsCatalog.Zed/TunaCore.CommonActionsCatalog.Open'
+url = 'tuna://run?subject=tuna.applications//Applications/Zed.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 'm'
 
     [[comboMode.bindings.children]]
     key = 'm'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Music/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Music.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 't'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Messages/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Messages.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'c'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.FaceTime/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/FaceTime.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'b'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Books/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Books.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 'h'
 
     [[comboMode.bindings.children]]
     key = 'c'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Calendar/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Calendar.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'm'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Mail/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Mail.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 's'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Safari/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'l'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Maps/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Maps.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 'p'
 
     [[comboMode.bindings.children]]
     key = 'a'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Andante/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//Applications/Andante.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'f'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.forScore/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//Applications/forScore.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'v'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.VoiceMemos/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/VoiceMemos.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = ','
 
     [[comboMode.bindings.children]]
     key = 's'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.System%20Settings/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/System%20Settings.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'f'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Finder/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Library/CoreServices/Finder.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'p'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Passwords/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Passwords.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'l'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.logioptionsplus/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//Applications/logioptionsplus.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
 key = 'a'
 
     [[comboMode.bindings.children]]
     key = 't'
-    url = 'tuna://run/text.%252Fbin%252Fzsh%2520~%252Fdev%252Fenvy%252Fscripts%252Ftoggle-audio.sh/Run%20Text%20as%20Shell%20Command'
+    url = 'tuna://run?subject=text:/bin/zsh%20~/dev/envy/scripts/toggle-audio.sh&action=tuna.common-actions/run-text-as-shell-command'
 
     [[comboMode.bindings.children]]
     key = 'm'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Audio%20MIDI%20Setup/Open'
+    url = 'tuna://run?subject=tuna.applications//System/Applications/Utilities/Audio%20MIDI%20Setup.app&action=Open'
 
 [[comboMode.bindings]]
 key = 'w'
 
     [[comboMode.bindings.children]]
-    key = 'l'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.AeroSpace/TunaCore.CommonActionsCatalog.Open'
+    key = 't'
+    url = 'tuna://run?subject=text:/bin/zsh%20~/dev/envy/scripts/toggle-wm.sh&action=tuna.common-actions/run-text-as-shell-command'
 
     [[comboMode.bindings.children]]
-    key = 'c'
-    url = 'tuna://run/TunaSystem.WindowManagementCatalog.Center/TunaCore.CommonActionsCatalog.Run'
+    key = 'f'
+    url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20layout%20floating%20tiling&action=tuna.common-actions/run-text-as-shell-command'
 
     [[comboMode.bindings.children]]
     key = 'j'
 
         [[comboMode.bindings.children.children]]
         key = 'h'
-        url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520left/Run%20Text%20as%20Shell%20Command'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20join-with%20left&action=tuna.common-actions/run-text-as-shell-command'
 
         [[comboMode.bindings.children.children]]
         key = 'j'
-        url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520down/Run%20Text%20as%20Shell%20Command'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20join-with%20down&action=tuna.common-actions/run-text-as-shell-command'
 
         [[comboMode.bindings.children.children]]
         key = 'k'
-        url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520up/Run%20Text%20as%20Shell%20Command'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20join-with%20up&action=tuna.common-actions/run-text-as-shell-command'
 
         [[comboMode.bindings.children.children]]
         key = 'l'
-        url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520right/Run%20Text%20as%20Shell%20Command'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20join-with%20right&action=tuna.common-actions/run-text-as-shell-command'
 
     [[comboMode.bindings.children]]
     key = 'd'
 
         [[comboMode.bindings.children.children]]
         key = 'n'
-        url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-workspace-to-monitor%2520next/Run%20Text%20as%20Shell%20Command'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20move-workspace-to-monitor%20next&action=tuna.common-actions/run-text-as-shell-command'
 
         [[comboMode.bindings.children.children]]
         key = 'p'
-        url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-workspace-to-monitor%2520prev/Run%20Text%20as%20Shell%20Command'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20move-workspace-to-monitor%20prev&action=tuna.common-actions/run-text-as-shell-command'
 
     [[comboMode.bindings.children]]
-    key = 'f'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520layout%2520floating%2520tiling/Run%20Text%20as%20Shell%20Command'
+    key = 'r'
+
+        [[comboMode.bindings.children.children]]
+        key = '['
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20resize%20smart%20-4&action=tuna.common-actions/run-text-as-shell-command'
+
+        [[comboMode.bindings.children.children]]
+        key = ']'
+        url = 'tuna://run?subject=text:/opt/homebrew/bin/aerospace%20resize%20smart%20+4&action=tuna.common-actions/run-text-as-shell-command'
 
 [[comboMode.bindings]]
 key = 'g'
 
     [[comboMode.bindings.children]]
     key = 'd'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Discord/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//Applications/Discord.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 's'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Steam/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//Applications/Steam.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     key = 'p'
-    url = 'tuna://run/TunaCore.ApplicationsCatalog.Prism%20Launcher/TunaCore.CommonActionsCatalog.Open'
+    url = 'tuna://run?subject=tuna.applications//Applications/Prism%20Launcher.app&action=tuna.common-actions/open'
 
 [hotkeys]
 custom = []
@@ -346,13 +208,13 @@ comboModeCheatsheetShowIcons = false
 comboModeModifierConfiguration = 'optionGroupControlSticky'
 comboModeModifierTrigger = 'rightCommand'
 fuzzyModeTriggerType = 'doublePress'
+screenPreference = 'activeWindow'
 shelfCatalogEnabled = false
 shelfWindowAlwaysOnTop = false
 shortcutDisplayUsesHyperSymbol = false
 showTasksIndicatorWhenHidden = false
 talkModeTriggerType = 'disabled'
 textModeTriggerType = 'disabled'
-themeIdentifier = 'com.brnbw.tuna.themes.default'
 typingTimeoutDuration = 3.0
 
 [smartLinks]
@@ -375,3 +237,9 @@ catalogIdentifier = 'com.brnbw.tuna.themes.default'
 
     [catalogSettings.values]
     ThemeTint = 'system'
+
+[[catalogSettings]]
+catalogIdentifier = 'tuna.prompts'
+
+    [catalogSettings.values]
+    Provider = 'apple'

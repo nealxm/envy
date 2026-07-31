@@ -2,18 +2,11 @@
   {
     "label": "cmake build",
     "command": "cmake --build build",
-    "reveal": "no_focus"
+    "reveal": "no_focus",
   },
   {
-    "label": "clean latex",
-    "command": "rm -f",
-    "args": [
-      "**/**/*.aux",
-      "**/**/*.fdb_latexmk",
-      "**/**/*.fls",
-      "**/**/*.log",
-      "**/**/*.synctex.gz"
-    ],
-    "reveal": "no_focus"
-  }
+    "label": "launch zathura",
+    "command": "zathura",
+    "reveal": "no_focus",
+  },
 ]

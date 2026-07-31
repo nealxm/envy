@@ -25,7 +25,7 @@ workspace-to-monitor-force-assignment.7 = 'secondary'
 
 on-window-detected = [
     {
-        if = 'test %{app-name} ~= mpv || test %{app-name} ~= java || test %{app-bundle-id} = com.apple.QuickTimePlayerX',
+        if = 'test %{app-name} ~= mpv || test %{app-name} ~= java || test %{app-bundle-id} = com.apple.QuickTimePlayerX || test %{app-bundle-id} = com.apple.FaceTime',
         run = 'layout floating',
         check-further-callbacks = true,
     },
@@ -40,7 +40,7 @@ on-window-detected = [
         check-further-callbacks = true,
     },
     {
-        if = 'test %{app-bundle-id} = com.apple.mail || test %{app-bundle-id} = com.apple.iCal || test %{app-bundle-id} = com.apple.Maps',
+        if = 'test %{app-bundle-id} = com.apple.mail || test %{app-bundle-id} = com.apple.iCal || test %{app-bundle-id} = com.apple.Safari || test %{app-bundle-id} = com.apple.Maps',
         run = 'move-node-to-workspace 3',
         check-further-callbacks = true,
     },
@@ -50,7 +50,7 @@ on-window-detected = [
         check-further-callbacks = true,
     },
     {
-        if = 'test %{app-bundle-id} = app.zen-browser.zen || test %{app-bundle-id} = com.apple.Safari || test %{app-bundle-id} = com.vivaldi.Vivaldi',
+        if = 'test %{app-bundle-id} = app.zen-browser.zen || test %{app-bundle-id} = com.vivaldi.Vivaldi',
         run = 'move-node-to-workspace 5',
         check-further-callbacks = true,
     },
@@ -60,12 +60,12 @@ on-window-detected = [
         check-further-callbacks = true,
     },
     {
-        if = 'test %{app-bundle-id} = com.apple.MobileSMS || test %{app-bundle-id} = com.apple.FaceTime || test %{app-bundle-id} = com.apple.Music || test %{app-bundle-id} = com.apple.podcasts',
+        if = 'test %{app-bundle-id} = com.apple.MobileSMS || test %{app-bundle-id} = com.apple.Music || test %{app-bundle-id} = com.apple.podcasts',
         run = 'move-node-to-workspace 7',
         check-further-callbacks = true,
     },
     {
-        if = 'test %{app-bundle-id} = com.mgsdevelopment.forscore || test %{app-bundle-id} = milesvinson.Andante || test %{app-bundle-id} = com.apple.logic10',
+        if = 'test %{app-bundle-id} = com.mgsdevelopment.forscore || test %{app-bundle-id} = milesvinson.Andante || test %{app-bundle-id} = com.apple.logic10 || test %{app-bundle-id} = com.apple.FinalCut',
         run = 'move-node-to-workspace 8',
         check-further-callbacks = true,
     },

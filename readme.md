@@ -1,23 +1,15 @@
 # envy
 ###### a simple environment configurations manager
-
-things i like:
-- keep defaults as much as possible. sensible defaults are part of good software.
-- use the included batteries. extensibility is great but having less to maintain is better.
-
-## references
 - [terminal](https://ghostty.org/)
 - [editor](https://zed.dev/)
 - [window manager](https://nikitabobko.github.io/AeroSpace/guide)
-- [app launcher](https://github.com/mikker/LeaderKey.app)
+- [app launcher](https://tunaformac.com/)
 - other tools
   - [fzf](https://github.com/junegunn/fzf)
   - [zoxide](https://github.com/ajeetdsouza/zoxide)
   - [btop](https://github.com/aristocratos/btop)
-  - [starship (prompt customization)](https://starship.rs/)
-  - [borders (active window feedback)](https://github.com/FelixKratz/JankyBorders)
-  - [sound source (audio mixer)](https://www.rogueamoeba.com/soundsource/)
-  - [tmux (last resort)](https://github.com/tmux/tmux)
+  - [starship](https://starship.rs/)
+  - [borders](https://github.com/FelixKratz/JankyBorders)
   - [neovim](https://neovim.io/)
 
 ## usage

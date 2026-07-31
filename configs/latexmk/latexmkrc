@@ -1,0 +1,9 @@
+$aux_dir = "out";
+$out_dir = "out";
+$cleanup_mode = 2;
+
+$pdf_mode = 4;
+$lualatex = 'lualatex -interaction=nonstopmode -halt-on-error %O %B';
+
+$preview_mode = 0;
+$quote_filenames = 0;
